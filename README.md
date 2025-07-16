@@ -24,7 +24,7 @@ npm install
 npm run dev
 ```
 
-Demo Link: [Access here](https://ejaralux.vercel.app)
+- Demo Link: [Access here](https://ejaralux.vercel.app)
 
 #### Folder and Files Structure
 
@@ -40,3 +40,5 @@ Demo Link: [Access here](https://ejaralux.vercel.app)
     ├── node_modules
     ├── public
     ├── shared
+
+- Project architecture explained here: [Click Me](https://github.com/NjohPrince/ejaralux-frontend/blob/main/ARCHITECTURE.md)
