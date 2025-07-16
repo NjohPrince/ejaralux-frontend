@@ -7,13 +7,13 @@ Smart Fashion for Every Lifestyle
 1. Clone this repository using the following command:
 
 ```bash
-$ git clone <copy & paste repo-url>
+git clone <copy & paste repo-url>
 ```
 
 2. Open cloned project folder on your code editor and install the project dependencies by running:
 
 ```bash
-$ npm install
+npm install
 ```
 
 3. Create a `.env.local` file and paste the content from `env.example` file located at the root of the project folder.
@@ -21,7 +21,7 @@ $ npm install
 4. Start the project
 
 ```bash
-$ npm run dev
+npm run dev
 ```
 
 Demo Link: [Access here](https://ejaralux.vercel.app)
