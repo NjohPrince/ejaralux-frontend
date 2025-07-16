@@ -7,7 +7,7 @@ Smart Fashion for Every Lifestyle
 1. Clone this repository using the following command:
 
 ```bash
-git clone <copy & paste repo-url>
+git clone https://github.com/NjohPrince/ejaralux-frontend.git
 ```
 
 2. Open cloned project folder on your code editor and install the project dependencies by running:
