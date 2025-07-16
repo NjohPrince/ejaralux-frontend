@@ -41,4 +41,6 @@ npm run dev
     ├── public
     ├── shared
 
+#### Project Architecture
+
 - Project architecture explained here: [Click Me](https://github.com/NjohPrince/ejaralux-frontend/blob/main/ARCHITECTURE.md)
