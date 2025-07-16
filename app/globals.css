@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "Carien";
+  src: url("/fonts/carien.woff") format("woff"),
+    url("/fonts/carien.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  font-family: var(--font-secondary), sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.15;
+}
+
+:root {
+  --font-primary: "Carien", sans-serif;
+
+  --white-color: #ffffff;
+  --secondary-white-color: #aebac6;
+
+  --dark-color: #000408;
+
+  --blue-color: #6e84f9;
+
+  --success-color: #3aff82;
+  --error-color: #ff4d4d;
+  --warning-color: #ffc94d;
+
+  --success-color-10: rgba(58, 255, 130, 0.1);
+  --error-color-10: rgba(255, 77, 77, 0.1);
+  --warning-color-10: rgba(255, 201, 77, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: var(--white-color);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+img {
+  pointer-events: none;
+}
+
+.app {
+  max-width: 1920px;
+  width: 100%;
+}
+
+img,
+figure,
+video,
+table {
+  width: 100%;
+}
+
+input {
+  background-color: var(--white-color);
+  outline: unset;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--dark-color);
+  box-shadow: 0 0 0px 1000px var(--white-color) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--white-color) inset;
+  overflow: hidden;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus {
+  outline: unset;
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+button,
+input {
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 1px solid var(--secondary-white-color);
+}
+
+@media screen and (max-width: 1792px) {
+  /* responsive styles here */
+}
+
+@media screen and (max-width: 1512px) {
+  /* responsive styles here */
+}
+
+@media screen and (max-width: 1280px) {
+  /* responsive styles here */
+}
+
+@media screen and (max-width: 834px) {
+  /* responsive styles here */
+}
+
+@media screen and (max-width: 740px) {
+  /* responsive styles here */
+}
+
+@media screen and (max-width: 438px) {
+  /* responsive styles here */
+}
+
+@media screen and (max-width: 320px) {
+  /* responsive styles here */
+}
