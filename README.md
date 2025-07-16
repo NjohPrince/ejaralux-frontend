@@ -2,7 +2,7 @@
 
 Smart Fashion for Every Lifestyle
 
-#### Local Setup Instructions
+### Local Setup Instructions
 
 1. Clone this repository using the following command:
 
@@ -26,7 +26,7 @@ npm run dev
 
 - Demo Link: [Access here](https://ejaralux.vercel.app)
 
-#### Folder and Files Structure
+### Folder and Files Structure
 
     .
     ├── .next
@@ -41,6 +41,6 @@ npm run dev
     ├── public
     ├── shared
 
-#### Project Architecture
+### Project Architecture
 
 - Project architecture explained here: [Click Me](https://github.com/NjohPrince/ejaralux-frontend/blob/main/ARCHITECTURE.md)
