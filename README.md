@@ -44,6 +44,10 @@ npm run dev
     ├── modules
     │   ├── [module/feature]
     │   │   ├── components
+    │   │   │   ├── atoms
+    │   │   │   ├── molecules
+    │   │   │   ├── organisms
+    │   │   │   └── templates
     │   │   ├── lib
     │   │   │     ├── hooks
     │   │   │     ├── utils
@@ -55,12 +59,17 @@ npm run dev
     ├── redux
     ├── shared
     │   ├── components
+    │   │   ├── atoms
+    │   │   ├── molecules
+    │   │   ├── organisms
+    │   │   └── templates
     │   ├── lib
     │   │    ├── hooks
     │   │    ├── utils
     │   │    └── validations
     │   ├── services
     │   └── types
+    .
 
 ### Project Architecture
 
