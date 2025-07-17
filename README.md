@@ -18,7 +18,7 @@ npm install
 
 3. Create a `.env.local` file and paste the content from `env.example` file located at the root of the project folder.
 
-4. Start the project as follows:
+4. Start the debvelopment server as follows:
 
 ```bash
 npm run dev
