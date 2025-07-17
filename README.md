@@ -49,9 +49,9 @@ npm run dev
     │   │   │   ├── organisms
     │   │   │   └── templates
     │   │   ├── lib
-    │   │   │     ├── hooks
-    │   │   │     ├── utils
-    │   │   │     └── validations
+    │   │   │   ├── hooks
+    │   │   │   ├── utils
+    │   │   │   └── validations
     │   │   ├── services
     │   │   └── types
     ├── node_modules
@@ -64,9 +64,9 @@ npm run dev
     │   │   ├── organisms
     │   │   └── templates
     │   ├── lib
-    │   │    ├── hooks
-    │   │    ├── utils
-    │   │    └── validations
+    │   │   ├── hooks
+    │   │   ├── utils
+    │   │   └── validations
     │   ├── services
     │   └── types
     .
