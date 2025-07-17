@@ -60,7 +60,7 @@ I chose to combine both approaches because they complement each other:
 - Modular Monolith ensures the codebase remains maintainable, even as the app scales with features.
 - Atomic Design ensures a consistent and reusable UI system while enabling low-level styling or component libraries like ShadCN, Chakra, or Tailwind CSS (if needed).
 
-### Conclusion
+### 📌 Conclusion
 
 This hybrid approach delivers a UI codebase that is:
 
