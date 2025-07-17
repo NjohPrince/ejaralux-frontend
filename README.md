@@ -26,20 +26,41 @@ npm run dev
 
 - Demo Link: [Access here](https://ejaralux.vercel.app)
 
-### Folder and Files Structure
+### Folder and Files Structure (Application Tree)
 
     .
     ├── .next
     ├── app
+    │   ├── auth
+    │   │   ├── change-password
+    │   │   ├── forgot-password
+    │   │   ├── login
+    │   │   └── register
     │   ├── cart
     │   ├── dashboard
     │   └── products
     │       ├── [category]
     │           └── [slug]
     ├── modules
+    │   ├── [module/feature]
+    │   │   ├── components
+    │   │   ├── lib
+    │   │   │     ├── hooks
+    │   │   │     ├── utils
+    │   │   │     └── validations
+    │   │   ├── services
+    │   │   └── types
     ├── node_modules
     ├── public
+    ├── redux
     ├── shared
+    │   ├── components
+    │   ├── lib
+    │   │    ├── hooks
+    │   │    ├── utils
+    │   │    └── validations
+    │   ├── services
+    │   └── types
 
 ### Project Architecture
 
