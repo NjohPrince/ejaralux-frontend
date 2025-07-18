@@ -73,16 +73,16 @@
 .wrapper input {
   padding: 16px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   outline: none;
   font-size: 1.8rem;
   width: 100%;
   background-color: var(--primary-surface-color);
   color: var(--white-color);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
   transition: 0.3s ease-in-out;
   -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;

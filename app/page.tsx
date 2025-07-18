@@ -5,6 +5,7 @@ import classes from "./page.module.css";
 import NavbarOrganism from "@/shared/components/organisms/navbar/navbar.organism";
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import SparkleIcon from "@/shared/components/icons/sparkle.icon";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -28,13 +29,22 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <Link href={"/auth/register"} className={`${classes.navbar__link}`}>
+            <Link href={"/products"} className={`${classes.navbar__link}`}>
               <ButtonAtom
-                label="Join the Glow Club"
+                label="Browse Products"
                 iconLeft={<SparkleIcon size="20" />}
               />
             </Link>
           </div>
+        </div>
+
+        <div className={`${classes.image}`}>
+          <Image
+            src={"/images/beauty.jpg"}
+            alt="hero"
+            width={600}
+            height={600}
+          />
         </div>
       </main>
     </div>

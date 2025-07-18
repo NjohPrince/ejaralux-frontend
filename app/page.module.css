@@ -1,6 +1,28 @@
 .hero {
   padding: 48px 12vw;
   min-height: calc(100vh - 100px);
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  right: 12vw;
+  bottom: 48px;
+  width: 600px;
+  height: 600px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
 }
 
 .hero h1 {

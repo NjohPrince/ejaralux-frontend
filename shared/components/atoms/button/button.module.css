@@ -10,17 +10,17 @@
 .wrapper button {
   padding: 16px 32px;
   border: 1px solid var(--white-color);
-  border-radius: 8px;
+  border-radius: 0;
   outline: none;
   font-size: 1.8rem;
   gap: 8px;
   width: 100%;
   font-weight: 400;
   color: var(--white-color);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
   background: var(--dark-color);
 }
 
