@@ -1,11 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import classes from "./page.module.css";
 
 import NavbarOrganism from "@/shared/components/organisms/navbar/navbar.organism";
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import SparkleIcon from "@/shared/components/icons/sparkle.icon";
-import Image from "next/image";
+import StarIcon from "@/shared/components/icons/star.icon";
 
 export default function Home() {
   return (
@@ -14,6 +15,16 @@ export default function Home() {
       <main className={`${classes.hero} flex col`}>
         <div className={`flex col gap-32`}>
           <div className={`flex col gap-16`}>
+            <div className={`flex gap-12`}>
+              <div className={`flex a-center gap-4`}>
+                <StarIcon color="var(--dark-color)" size="20" />
+                <StarIcon color="var(--dark-color)" size="20" />
+                <StarIcon color="var(--dark-color)" size="20" />
+                <StarIcon color="var(--dark-color)" size="20" />
+                <StarIcon color="var(--dark-color)" size="20" />
+              </div>
+              <span className={`${classes.note}`}>100% Natural</span>
+            </div>
             <h1
               style={{
                 fontFamily: "var(--font-primary)",

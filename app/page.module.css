@@ -40,6 +40,11 @@
   width: 100%;
 }
 
+.hero .note {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 .hero div {
   width: fit-content;
 }
