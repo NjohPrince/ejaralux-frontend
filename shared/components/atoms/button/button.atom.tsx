@@ -37,7 +37,7 @@ const ButtonAtom: React.FC<ButtonProps> = ({
         aria-disabled={loading}
         type={type}
         onClick={onClick}
-        className={`${classes.button} ${normal ? classes.normal : ""}`}
+        className={`${classes.button} ${normal ? classes.normal : ""} delay`}
       >
         {loading ? (
           <>

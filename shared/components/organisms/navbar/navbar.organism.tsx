@@ -5,6 +5,7 @@ import classes from "./navbar.module.css";
 
 import CartIcon from "../../icons/cart.icon";
 import ButtonAtom from "../../atoms/button/button.atom";
+import UserIcon from "../../icons/user.icon";
 
 const NavbarOrganism = () => {
   return (
@@ -21,10 +22,10 @@ const NavbarOrganism = () => {
           href={"/cart"}
           className={`${classes.navbar__link} ${classes.cart}`}
         >
-          <CartIcon />
+          <CartIcon color="var(--dark-color)" />
         </Link>
         <Link href={"/auth/login"} className={`${classes.navbar__link}`}>
-          <ButtonAtom label="Sign In" />
+          <ButtonAtom label="Your Account" iconLeft={<UserIcon size="20" />} />
         </Link>
       </ul>
     </nav>

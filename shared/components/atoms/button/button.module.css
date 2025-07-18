@@ -8,26 +8,38 @@
 }
 
 .wrapper button {
-  padding: 16px 20px;
-  border: none;
+  padding: 16px 32px;
+  border: 1px solid var(--white-color);
   border-radius: 8px;
   outline: none;
   font-size: 1.8rem;
   gap: 8px;
   width: 100%;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--white-color);
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+  background: var(--dark-color);
+}
+
+.wrapper button:hover {
+  background: var(--white-color);
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+}
+
+.wrapper button svg path {
   transition: 0.3s ease-in-out;
   -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
   -ms-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
+}
 
-  background: var(--dark-color);
+.wrapper button:hover svg path {
+  stroke: var(--dark-color);
 }
 
 .wrapper button:disabled {

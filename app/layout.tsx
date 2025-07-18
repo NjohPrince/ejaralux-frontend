@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 
-import { inter } from "../shared/lib/utils/fonts.util";
+import { dmSans } from "../shared/lib/utils/fonts.util";
 
 export const metadata: Metadata = {
   title: "EJARALUX",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable}`}>{children}</body>
+      <body className={`${dmSans.variable}`}>{children}</body>
     </html>
   );
 }
