@@ -17,12 +17,15 @@ const NavbarOrganism = () => {
       <div className={`${classes.navbar__logo}`}>
         <Link href="/">EJARAFLUX</Link>
       </div>
-      <ul className={`${classes.navbar__links} flex a-center gap-24`}>
+      <ul className={`${classes.navbar__links} flex a-center gap-32`}>
         <Link
           href={"/cart"}
           className={`${classes.navbar__link} ${classes.cart}`}
         >
           <CartIcon color="var(--dark-color)" />
+          <span className={`${classes.cart__count} flex center`} aria-label="cart count">
+            0
+          </span>
         </Link>
         <Link href={"/auth/login"} className={`${classes.navbar__link}`}>
           <ButtonAtom label="Your Account" iconLeft={<UserIcon size="20" />} />
