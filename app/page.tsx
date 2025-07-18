@@ -52,7 +52,7 @@ export default function Home() {
         <div className={`${classes.image}`}>
           <Image
             src={"/images/beauty.jpg"}
-            alt="hero"
+            alt="beauty"
             width={600}
             height={600}
           />
