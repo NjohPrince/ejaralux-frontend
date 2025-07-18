@@ -1,6 +1,6 @@
 ## EJARAFLUX FRONTEND
 
-Smart Fashion for Every Lifestyle
+Luxury Skin, Timeless Glow
 
 ### Local Setup Instructions
 

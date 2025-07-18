@@ -5,8 +5,9 @@ import "./globals.css";
 import { dmSans } from "../shared/lib/utils/fonts.util";
 
 export const metadata: Metadata = {
-  title: "EJARALUX",
-  description: "Smart Fashion for Every Lifestyle",
+  title: "EJARALUX | Luxury Skin, Timeless Glow",
+  description:
+    "Luxury skincare crafted to reveal your most radiant self. Shop glow essentials and elevate your beauty ritual.",
 };
 
 export default function RootLayout({
