@@ -23,17 +23,9 @@ export default function Home() {
                 <StarIcon color="var(--dark-color)" size="20" />
                 <StarIcon color="var(--dark-color)" size="20" />
               </div>
-              <span className={`${classes.note}`}>100% Natural</span>
+              <span className={`${classes.note}`}>🌿 100% Natural</span>
             </div>
-            <h1
-              style={{
-                fontFamily: "var(--font-primary)",
-                fontSize: "6.4rem",
-                textTransform: "uppercase",
-              }}
-            >
-              Luxury Skin, Timeless Glow.
-            </h1>
+            <h1>Luxury Skin, Timeless Glow.</h1>
             <p>
               Discover high-performance skincare for the glow that never fades.
               Because your skin deserves the very best.
