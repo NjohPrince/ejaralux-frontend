@@ -31,3 +31,34 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
 }
+
+.pagination-controls {
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.pagination-arrow {
+  padding: 8px 16px;
+  border: 1px solid var(--dark-color);
+  background: var(--white-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pagination-arrow:hover:not(:disabled) {
+  background: var(--dark-color);
+  color: var(--white-color);
+}
+
+.pagination-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-status {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--dark-color);
+}

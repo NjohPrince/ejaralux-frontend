@@ -33,7 +33,6 @@ const ProductCardMolecule: React.FC<ProductType> = ({
               alt={name}
               width={600}
               height={600}
-              loading="lazy"
               className={`${classes.image}`}
               onError={(e) => {
                 e.currentTarget.src = "/images/products/image11.webp";

@@ -3,9 +3,11 @@
 import React from "react";
 
 import classes from "./products.module.css";
+
 import CategoryGroupMolecule from "../../molecules/category-group/category-group.molecule";
 import { products } from "@/shared/lib/utils/products.util";
 import ProductCardMolecule from "../../molecules/product-card/product-card.molecule";
+import { usePaginationHook } from "@/shared/lib/hooks/use-pagination.hook";
 
 const ProductsTemplate = () => {
   const [index, setActiveIndex] = React.useState(0);
@@ -20,6 +22,13 @@ const ProductsTemplate = () => {
       );
     }
   }, [index]);
+
+  const {
+    currentPage,
+    totalPages,
+    currentItems: paginatedProducts,
+    goToPage,
+  } = usePaginationHook(filteredProducts, 10);
 
   return (
     <div className={`${classes.products} flex col`}>
@@ -37,9 +46,9 @@ const ProductsTemplate = () => {
       <CategoryGroupMolecule idx={index} setActiveIndex={setActiveIndex} />
 
       <div className={`${classes.products__list}`}>
-        {filteredProducts &&
-          filteredProducts.length > 0 &&
-          filteredProducts.map((product, index) => {
+        {paginatedProducts &&
+          paginatedProducts.length > 0 &&
+          paginatedProducts.map((product, index) => {
             return (
               <ProductCardMolecule
                 name={product.name}
@@ -54,6 +63,28 @@ const ProductsTemplate = () => {
               />
             );
           })}
+      </div>
+
+      <div className={`${classes["pagination-controls"]} flex center gap-16`}>
+        <button
+          onClick={() => goToPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={`${classes["pagination-arrow"]} delay`}
+        >
+          ←
+        </button>
+
+        <span className={classes["pagination-status"]}>
+          Page {currentPage} of {totalPages}
+        </span>
+
+        <button
+          onClick={() => goToPage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className={`${classes["pagination-arrow"]} delay`}
+        >
+          →
+        </button>
       </div>
     </div>
   );
