@@ -43,7 +43,6 @@ const LazyImageAtom: React.FC<LazyImageAtomProps> = ({
           loading="lazy"
           placeholder="blur"
           blurDataURL="/images/products/image11.webp"
-          className="lazy-image"
           {...props}
         />
       )}
