@@ -1,4 +1,4 @@
-import { ProductType } from "@/shared/types/product.type";
+import { ProductType } from "@/modules/products/types/product.type";
 
 export const products: ProductType[] = [
   {
@@ -245,148 +245,149 @@ export const products: ProductType[] = [
     price: 38.0,
     description: "Refining scrub that sloughs off dullness and smooths pores.",
   },
-  {
-    id: 33,
-    name: "Pink Citrus Peel",
-    catId: 9,
-    price: 42.0,
-    description:
-      "Brightening fruit acid peel with pink citrus extracts and glow boosters.",
-  },
-  {
-    id: 34,
-    name: "Pore Purity Scrub",
-    catId: 9,
-    price: 36.0,
-    description:
-      "Detoxifying clay-based scrub that purifies pores without stripping moisture.",
-  },
-  {
-    id: 35,
-    name: "Gentle Radiance Polish",
-    catId: 9,
-    price: 40.0,
-    description:
-      "Soft exfoliant with rose petals and jojoba beads for polished glow.",
-  },
-  {
-    id: 36,
-    name: "Moon Dew Serum",
-    catId: 7,
-    price: 58.0,
-    description:
-      "Nighttime hydrating serum with a celestial blend of glow actives.",
-  },
-  {
-    id: 37,
-    name: "Twilight Skin Ritual",
-    catId: 7,
-    price: 67.0,
-    description:
-      "A soothing evening ritual with essential oils and hydration layers.",
-  },
-  {
-    id: 38,
-    name: "Revive While You Rest",
-    catId: 7,
-    price: 70.0,
-    description:
-      "Restorative overnight treatment that revives tired skin by morning.",
-  },
-  {
-    id: 39,
-    name: "Spotless Glow",
-    catId: 8,
-    price: 48.0,
-    description:
-      "Brightening gel to fade dark spots and even out your skin tone.",
-  },
-  {
-    id: 40,
-    name: "EvenTone Complex",
-    catId: 8,
-    price: 54.0,
-    description:
-      "Advanced formulation to restore balance and luminosity to uneven skin.",
-  },
-  {
-    id: 41,
-    name: "Illuminate+",
-    catId: 8,
-    price: 60.0,
-    description:
-      "Powerful blend of peptides and botanicals for visibly illuminated skin.",
-  },
-  {
-    id: 42,
-    name: "Golden Tone Elixir",
-    catId: 8,
-    price: 62.0,
-    description:
-      "A serum-oil hybrid designed to nourish and brighten golden undertones.",
-  },
-  {
-    id: 43,
-    name: "Clarity Cream",
-    catId: 8,
-    price: 52.0,
-    description:
-      "Daily cream that clears blemishes while delivering hydration and glow.",
-  },
-  {
-    id: 44,
-    name: "LumiBright Serum",
-    catId: 8,
-    price: 58.0,
-    description:
-      "Brightening serum with vitamin C and niacinamide for radiant skin tone.",
-  },
-  {
-    id: 45,
-    name: "Radiant Reset Tonic",
-    catId: 8,
-    price: 36.0,
-    description:
-      "Toning solution that preps and refreshes skin for a radiant base.",
-  },
-  {
-    id: 46,
-    name: "Pure Quartz Detox",
-    catId: 4,
-    price: 50.0,
-    description:
-      "Mineral-rich clay mask with crushed quartz to detox and energize.",
-  },
-  {
-    id: 47,
-    name: "Hydro Infusion Wrap",
-    catId: 4,
-    price: 46.0,
-    description:
-      "Sheet mask drenched in hydrating actives for immediate glow infusion.",
-  },
-  {
-    id: 48,
-    name: "LumiBarrier Sunscreen",
-    catId: 5,
-    price: 44.0,
-    description:
-      "Glow-friendly sunscreen with barrier support and non-greasy finish.",
-  },
-  {
-    id: 49,
-    name: "Hydra Protect+",
-    catId: 5,
-    price: 40.0,
-    description:
-      "A nourishing SPF blend that hydrates and shields sensitive skin.",
-  },
-  {
-    id: 50,
-    name: "Crystal Radiance Oil",
-    catId: 6,
-    price: 59.0,
-    description:
-      "Botanical oil blend infused with quartz essence for a luminous finish.",
-  },
+  //   {
+  //     id: 33,
+  //     name: "Pink Citrus Peel",
+  //     catId: 9,
+  //     price: 42.0,
+  //     description:
+  //       "Brightening fruit acid peel with pink citrus extracts and glow boosters.",
+  //   },
+  //   {
+  //     id: 34,
+  //     name: "Pore Purity Scrub",
+  //     catId: 9,
+  //     price: 36.0,
+  //     description:
+  //       "Detoxifying clay-based scrub that purifies pores without stripping moisture.",
+  //   },
+  //   {
+  //     id: 35,
+  //     name: "Gentle Radiance Polish",
+  //     catId: 9,
+  //     price: 40.0,
+  //     description:
+  //       "Soft exfoliant with rose petals and jojoba beads for polished glow.",
+  //   },
+  //   {
+  //     id: 36,
+  //     name: "Moon Dew Serum",
+  //     catId: 7,
+  //     price: 58.0,
+  //     description:
+  //       "Nighttime hydrating serum with a celestial blend of glow actives.",
+  //   },
+  //   {
+  //     id: 37,
+  //     name: "Twilight Skin Ritual",
+  //     catId: 7,
+  //     price: 67.0,
+  //     description:
+  //       "A soothing evening ritual with essential oils and hydration layers.",
+  //   },
+  //   {
+  //     id: 38,
+  //     name: "Revive While You Rest",
+  //     catId: 7,
+  //     price: 70.0,
+  //     description:
+  //       "Restorative overnight treatment that revives tired skin by morning.",
+  //   },
+  //   {
+  //     id: 39,
+  //     name: "Spotless Glow",
+  //     catId: 8,
+  //     price: 48.0,
+  //     description:
+  //       "Brightening gel to fade dark spots and even out your skin tone.",
+  //   },
+  //   {
+  //     id: 40,
+  //     name: "EvenTone Complex",
+  //     catId: 8,
+  //     price: 54.0,
+  //     description:
+  //       "Advanced formulation to restore balance and luminosity to uneven skin.",
+  //   },
+  //   {
+  //     id: 41,
+  //     name: "Illuminate+",
+  //     catId: 8,
+  //     price: 60.0,
+  //     description:
+  //       "Powerful blend of peptides and botanicals for visibly illuminated skin.",
+  //   },
+  //   {
+  //     id: 42,
+  //     name: "Golden Tone Elixir",
+  //     catId: 8,
+  //     price: 62.0,
+  //     description:
+  //       "A serum-oil hybrid designed to nourish and brighten golden undertones.",
+  //   },
+  //   {
+  //     id: 43,
+  //     name: "Clarity Cream",
+  //     catId: 8,
+  //     price: 52.0,
+  //     description:
+  //       "Daily cream that clears blemishes while delivering hydration and glow.",
+  //   },
+  //   {
+  //     id: 44,
+  //     name: "LumiBright Serum",
+  //     catId: 8,
+  //     price: 58.0,
+  //     description:
+  //       "Brightening serum with vitamin C and niacinamide for radiant skin tone.",
+  //   },
+  //   {
+  //     id: 45,
+  //     name: "Radiant Reset Tonic",
+  //     catId: 8,
+  //     price: 36.0,
+  //     description:
+  //       "Toning solution that preps and refreshes skin for a radiant base.",
+  //   },
+  //   {
+  //     id: 46,
+  //     name: "Pure Quartz Detox",
+  //     catId: 4,
+  //     price: 50.0,
+  //     description:
+  //       "Mineral-rich clay mask with crushed quartz to detox and energize.",
+  //   },
+  //   {
+  //     id: 47,
+  //     name: "Hydro Infusion Wrap",
+  //     catId: 4,
+  //     price: 46.0,
+  //     description:
+  //       "Sheet mask drenched in hydrating actives for immediate glow infusion.",
+  //   },
+  //   {
+  //     id: 48,
+  //     name: "LumiBarrier Sunscreen",
+  //     catId: 5,
+  //     price: 44.0,
+  //     description:
+  //       "Glow-friendly sunscreen with barrier support and non-greasy finish.",
+  //   },
+  //   {
+  //     id: 49,
+  //     name: "Hydra Protect+",
+  //     catId: 5,
+  //     price: 40.0,
+  //     description:
+  //       "A nourishing SPF blend that hydrates and shields sensitive skin.",
+  //   },
+  //   {
+  //     id: 50,
+  //     name: "Crystal Radiance Oil",
+  //     catId: 6,
+  //     price: 59.0,
+  //     description:
+  //       "Botanical oil blend infused with quartz essence for a luminous finish.",
+  //   },
+  // ];
 ];

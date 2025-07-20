@@ -3,5 +3,6 @@ export interface ProductType {
   name: string;
   catId: number;
   price: number;
+  image?: string
   description: string;
 }

@@ -1,6 +1,7 @@
-import { CategoryType } from "@/shared/types/category.type";
+import { CategoryType } from "@/modules/products/types/category.type";
 
 export const categories: CategoryType[] = [
+  { id: 0, name: "All" },
   { id: 1, name: "Glow Serums" },
   { id: 2, name: "Moisturizers & Creams" },
   { id: 3, name: "Cleansers & Toners" },
