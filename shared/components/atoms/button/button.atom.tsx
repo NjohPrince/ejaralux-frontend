@@ -29,7 +29,7 @@ const ButtonAtom: React.FC<ButtonProps> = ({
   onClick,
 }: ButtonProps) => {
   return (
-    <div className={`${classes.wrapper}`}>
+    <div className={`${classes.wrapper} flex center`}>
       <button
         aria-label={ariaLabel}
         aria-busy={loading}
@@ -37,7 +37,9 @@ const ButtonAtom: React.FC<ButtonProps> = ({
         aria-disabled={loading}
         type={type}
         onClick={onClick}
-        className={`${classes.button} ${normal ? classes.normal : ""} delay`}
+        className={`${classes.button} ${
+          normal ? classes.normal : ""
+        } delay flex center`}
       >
         {loading ? (
           <>

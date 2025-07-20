@@ -1,7 +1,9 @@
-.hero {
+.products {
   padding: 48px 12vw;
+  width: 100%;
   min-height: calc(100vh - 100px);
   position: relative;
+  gap: 48px;
 }
 
 .hero h1 {
