@@ -9,6 +9,7 @@ import { categories } from "@/shared/lib/utils/categories.util";
 import LazyImageAtom from "@/shared/components/atoms/lazy-image/lazy-image.atom";
 
 const ProductCardMolecule: React.FC<ProductType> = ({
+  id,
   name,
   price,
   image,
@@ -19,7 +20,7 @@ const ProductCardMolecule: React.FC<ProductType> = ({
     <Link
       href={`/products/${slugify(
         categories.find((c) => c.id === catId)?.name as string
-      )}/${slugify(name)}`}
+      )}/${id}/${slugify(name)}`}
       style={{
         textDecoration: "none",
       }}
@@ -28,16 +29,16 @@ const ProductCardMolecule: React.FC<ProductType> = ({
         className={`${classes.product__card} flex col delay gap-16 space-between`}
       >
         <div className={`${classes.head} flex col gap-16`}>
-            <LazyImageAtom
-              src={`${image}`}
-              alt={name}
-              width={600}
-              height={600}
-              className={`${classes.image}`}
-              onError={(e) => {
-                e.currentTarget.src = "/images/products/image11.webp";
-              }}
-            />
+          <LazyImageAtom
+            src={`${image}`}
+            alt={name}
+            width={600}
+            height={600}
+            className={`${classes.image}`}
+            onError={(e) => {
+              e.currentTarget.src = "/images/products/image11.webp";
+            }}
+          />
           <div className={`${classes.head} flex col gap-8`}>
             <h2>{name}</h2>
             <p>{description}</p>

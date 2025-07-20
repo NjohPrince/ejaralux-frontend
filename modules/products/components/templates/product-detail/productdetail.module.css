@@ -1,0 +1,51 @@
+.details,
+.related {
+  padding: 48px 12vw;
+  width: 100%;
+}
+
+.related {
+  padding-top: 32px;
+}
+
+.details > div {
+  flex: 1;
+  -ms-flex: 1;
+}
+
+.details .image__container {
+  height: 600px;
+}
+
+.details img {
+  object-fit: cover;
+  -o-object-fit: cover;
+  height: 600px;
+  width: 100%;
+}
+
+.details h2,
+.related h2 {
+  font-size: 3.2rem;
+  font-family: var(--font-primary);
+}
+
+.details p {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.price {
+  justify-content: flex-end;
+}
+
+.price h3 {
+  font-size: 3rem;
+}
+
+.products__list {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
