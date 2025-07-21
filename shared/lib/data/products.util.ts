@@ -8,6 +8,8 @@ export const products: ProductType[] = [
     price: 48.0,
     description: "A luminous serum designed to brighten and hydrate dull skin.",
     image: "/images/products/image11.webp",
+    quantity: 30,
+    unit: "mL",
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ export const products: ProductType[] = [
     price: 52.0,
     description: "Our signature glow-boosting formula for daily radiance.",
     image: "/images/products/image12.webp",
+    quantity: 50,
+    unit: "mL",
   },
   {
     id: 3,
@@ -25,6 +29,8 @@ export const products: ProductType[] = [
     description:
       "Ultra-light serum that delivers instant hydration and dewiness.",
     image: "/images/products/image13.webp",
+    quantity: 30,
+    unit: "mL",
   },
   {
     id: 4,
@@ -34,6 +40,8 @@ export const products: ProductType[] = [
     description:
       "Feather-soft moisturizer that melts into the skin for all-day hydration.",
     image: "/images/products/image14.webp",
+    quantity: 50,
+    unit: "g",
   },
   {
     id: 5,
@@ -43,6 +51,8 @@ export const products: ProductType[] = [
     description:
       "Rich cream that deeply moisturizes and restores dry, dull skin.",
     image: "/images/products/image21.webp",
+    quantity: 60,
+    unit: "g",
   },
   {
     id: 6,
@@ -52,6 +62,8 @@ export const products: ProductType[] = [
     description:
       "Gentle daily cleanser that purifies while maintaining skin glow.",
     image: "/images/products/image22.webp",
+    quantity: 100,
+    unit: "mL",
   },
   {
     id: 7,
@@ -61,6 +73,8 @@ export const products: ProductType[] = [
     description:
       "Silky foaming wash to remove makeup and impurities with ease.",
     image: "/images/products/image23.webp",
+    quantity: 120,
+    unit: "mL",
   },
   {
     id: 8,
@@ -69,6 +83,8 @@ export const products: ProductType[] = [
     price: 60.0,
     description: "Overnight treatment mask that renews skin as you sleep.",
     image: "/images/products/image24.webp",
+    quantity: 75,
+    unit: "g",
   },
   {
     id: 9,
@@ -78,6 +94,8 @@ export const products: ProductType[] = [
     description:
       "Nourishing mask with honey and botanicals for an instant glow.",
     image: "/images/products/image31.webp",
+    quantity: 80,
+    unit: "g",
   },
   {
     id: 10,
@@ -86,6 +104,8 @@ export const products: ProductType[] = [
     price: 42.0,
     description: "Lightweight, glow-preserving sunscreen for daily protection.",
     image: "/images/products/image32.webp",
+    quantity: 50,
+    unit: "mL",
   },
   {
     id: 11,
@@ -95,6 +115,8 @@ export const products: ProductType[] = [
     description:
       "Luxury mineral SPF with a velvet finish and anti-aging protection.",
     image: "/images/products/image33.webp",
+    quantity: 60,
+    unit: "mL",
   },
   {
     id: 12,
@@ -104,6 +126,8 @@ export const products: ProductType[] = [
     description:
       "Luxury oil infused with rose and gold for hydration and glow.",
     image: "/images/products/image34.webp",
+    quantity: 30,
+    unit: "mL",
   },
   {
     id: 13,
@@ -112,6 +136,8 @@ export const products: ProductType[] = [
     price: 50.0,
     description: "Multi-purpose balm that nourishes and heals dry, tired skin.",
     image: "/images/products/image41.webp",
+    quantity: 45,
+    unit: "g",
   },
   {
     id: 14,
@@ -120,6 +146,8 @@ export const products: ProductType[] = [
     price: 58.0,
     description: "Nighttime serum to brighten, repair, and soothe overnight.",
     image: "/images/products/image42.webp",
+    quantity: 30,
+    unit: "mL",
   },
   {
     id: 15,
@@ -128,6 +156,8 @@ export const products: ProductType[] = [
     price: 62.0,
     description: "A deeply hydrating night cream for morning glow revival.",
     image: "/images/products/image43.webp",
+    quantity: 60,
+    unit: "g",
   },
   {
     id: 16,
@@ -137,6 +167,8 @@ export const products: ProductType[] = [
     description:
       "Vitamin-rich serum designed to even tone and enhance brightness.",
     image: "/images/products/image44.webp",
+    quantity: 30,
+    unit: "mL",
   },
   {
     id: 17,
@@ -145,6 +177,8 @@ export const products: ProductType[] = [
     price: 57.0,
     description: "Targeted treatment to fade spots and promote smooth clarity.",
     image: "/images/products/image51.webp",
+    quantity: 25,
+    unit: "mL",
   },
   {
     id: 18,
@@ -154,6 +188,8 @@ export const products: ProductType[] = [
     description:
       "Gentle floral exfoliant that buffs away dullness with natural petals.",
     image: "/images/products/image52.webp",
+    quantity: 80,
+    unit: "g",
   },
   {
     id: 19,
@@ -162,6 +198,8 @@ export const products: ProductType[] = [
     price: 40.0,
     description: "AHA/BHA gel exfoliator for resurfacing and glowing skin.",
     image: "/images/products/image53.webp",
+    quantity: 50,
+    unit: "mL",
   },
   {
     id: 20,
@@ -171,6 +209,8 @@ export const products: ProductType[] = [
     description:
       "Complete daily glow routine in one luxurious, travel-ready kit.",
     image: "/images/products/image54.webp",
+    quantity: 1,
+    unit: "set",
   },
   {
     id: 21,
@@ -179,6 +219,8 @@ export const products: ProductType[] = [
     price: 95.0,
     description: "Perfect intro to luxury skincare — cleanse, treat, glow.",
     image: "/images/products/image61.webp",
+    quantity: 1,
+    unit: "set",
   },
   {
     id: 22,
@@ -186,8 +228,10 @@ export const products: ProductType[] = [
     catId: 10,
     price: 88.0,
     description:
-      "A daily cleanser and serum duo designed to awaken and hydrate your skin.",
+      "A daily cleanser and serum duo to awaken and hydrate your skin.",
     image: "/images/products/image62.webp",
+    quantity: 2,
+    unit: "pcs",
   },
   {
     id: 23,
@@ -195,8 +239,10 @@ export const products: ProductType[] = [
     catId: 10,
     price: 110.0,
     description:
-      "A full-step ritual kit to cleanse, hydrate, and boost your natural glow.",
+      "A full-step ritual kit to cleanse, hydrate, and boost your glow.",
     image: "/images/products/image63.webp",
+    quantity: 1,
+    unit: "set",
   },
   {
     id: 24,
@@ -206,15 +252,18 @@ export const products: ProductType[] = [
     description:
       "Luxury skincare in travel size — for radiant skin wherever you go.",
     image: "/images/products/image64.webp",
+    quantity: 5,
+    unit: "pcs",
   },
   {
     id: 25,
     name: "Golden Hour Set",
     catId: 10,
     price: 99.0,
-    description:
-      "A glow-enhancing combo of oil, toner, and mask for luminous evenings.",
+    description: "A glow-enhancing combo of oil, toner, and mask for evenings.",
     image: "/images/products/image71.webp",
+    quantity: 3,
+    unit: "pcs",
   },
   {
     id: 26,
@@ -224,6 +273,8 @@ export const products: ProductType[] = [
     description:
       "Our signature bloom-inspired formulas in one radiant collection.",
     image: "/images/products/image72.webp",
+    quantity: 4,
+    unit: "pcs",
   },
   {
     id: 27,
@@ -232,6 +283,8 @@ export const products: ProductType[] = [
     price: 108.0,
     description: "A curated set of bestsellers to maximize glow and hydration.",
     image: "/images/products/image73.webp",
+    quantity: 1,
+    unit: "set",
   },
   {
     id: 28,
@@ -241,6 +294,8 @@ export const products: ProductType[] = [
     description:
       "Morning-to-night skincare routine for radiant skin all day long.",
     image: "/images/products/image74.webp",
+    quantity: 6,
+    unit: "pcs",
   },
   {
     id: 29,
@@ -250,6 +305,8 @@ export const products: ProductType[] = [
     description:
       "Full-size essentials to transform your glow into a daily ritual.",
     image: "/images/products/image81.webp",
+    quantity: 1,
+    unit: "set",
   },
   {
     id: 30,
@@ -257,8 +314,10 @@ export const products: ProductType[] = [
     catId: 9,
     price: 39.0,
     description:
-      "Gentle enzyme-based exfoliator that refreshes and refines skin texture.",
+      "Gentle enzyme-based exfoliator that refreshes and refines texture.",
     image: "/images/products/image82.webp",
+    quantity: 70,
+    unit: "g",
   },
   {
     id: 31,
@@ -266,8 +325,10 @@ export const products: ProductType[] = [
     catId: 9,
     price: 35.0,
     description:
-      "Sugar-based scrub with botanical oils for ultra-soft, glowing skin.",
+      "Sugar-based scrub with botanical oils for ultra-soft glowing skin.",
     image: "/images/products/image83.webp",
+    quantity: 75,
+    unit: "g",
   },
   {
     id: 32,
@@ -276,6 +337,8 @@ export const products: ProductType[] = [
     price: 38.0,
     description: "Refining scrub that sloughs off dullness and smooths pores.",
     image: "/images/products/image84.webp",
+    quantity: 80,
+    unit: "g",
   },
   //   {
   //     id: 33,

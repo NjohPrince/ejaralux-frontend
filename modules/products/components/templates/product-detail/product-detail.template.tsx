@@ -8,7 +8,8 @@ import { ProductType } from "@/modules/products/types/product.type";
 import LazyImageAtom from "@/shared/components/atoms/lazy-image/lazy-image.atom";
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import ProductCardMolecule from "../../molecules/product-card/product-card.molecule";
-import { products } from "@/shared/lib/utils/products.util";
+import { products } from "@/shared/lib/data/products.util";
+import GoBackAtom from "@/shared/components/atoms/go-back/go-back.atom";
 
 const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
   product,
@@ -19,6 +20,9 @@ const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
 
   return (
     <>
+      <div className={`${classes.back}`}>
+        <GoBackAtom />
+      </div>
       <div className={`${classes.details} flex gap-32`}>
         <div className={`${classes.image__container}`}>
           <LazyImageAtom
@@ -54,15 +58,17 @@ const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
             relatedProducts.map((product, index) => {
               return (
                 <ProductCardMolecule
-                  name={product.name}
-                  description={product.description}
-                  price={product.price}
-                  id={product.id}
-                  catId={product.catId}
+                  name={product?.name}
+                  description={product?.description}
+                  price={product?.price}
+                  id={product?.id}
+                  catId={product?.catId}
                   key={index}
                   image={`/images/products/image${Math.ceil(product.id / 4)}${
                     ((product.id - 1) % 4) + 1
                   }.webp`}
+                  quantity={product?.quantity}
+                  unit={product?.unit}
                 />
               );
             })}

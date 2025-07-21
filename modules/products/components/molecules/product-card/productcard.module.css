@@ -32,10 +32,10 @@
   font-weight: 300;
 }
 
-.price {
-  justify-content: flex-end;
+.price h3 {
+  font-size: 2.4rem;
 }
 
-.price h3 {
-  font-size: 2rem;
+.price p {
+    font-weight: 500;
 }

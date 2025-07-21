@@ -1,11 +1,21 @@
 .details,
-.related {
+.related,
+.back {
   padding: 48px 12vw;
   width: 100%;
 }
 
 .related {
   padding-top: 32px;
+}
+
+.back {
+  padding-bottom: 0;
+}
+
+
+.details {
+  padding-top: 16px;
 }
 
 .details > div {

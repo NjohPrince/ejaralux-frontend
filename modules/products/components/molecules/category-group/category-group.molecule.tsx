@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "./categorygroup.module.css";
 
-import { categories } from "@/shared/lib/utils/categories.util";
+import { categories } from "@/shared/lib/data/categories.util";
 import CategoryButtonAtom from "../../atoms/category-button/category-button.atom";
 import { CategoryGroupProps } from "./category-group.type";
 

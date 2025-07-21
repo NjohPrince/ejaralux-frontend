@@ -5,7 +5,7 @@ import React from "react";
 import classes from "./products.module.css";
 
 import CategoryGroupMolecule from "../../molecules/category-group/category-group.molecule";
-import { products } from "@/shared/lib/utils/products.util";
+import { products } from "@/shared/lib/data/products.util";
 import ProductCardMolecule from "../../molecules/product-card/product-card.molecule";
 import { usePaginationHook } from "@/shared/lib/hooks/use-pagination.hook";
 
@@ -51,15 +51,17 @@ const ProductsTemplate = () => {
           paginatedProducts.map((product, index) => {
             return (
               <ProductCardMolecule
-                name={product.name}
-                description={product.description}
-                price={product.price}
-                id={product.id}
-                catId={product.catId}
+                name={product?.name}
+                description={product?.description}
+                price={product?.price}
+                id={product?.id}
+                catId={product?.catId}
                 key={index}
                 image={`/images/products/image${Math.ceil(product.id / 4)}${
                   ((product.id - 1) % 4) + 1
                 }.webp`}
+                quantity={product?.quantity}
+                unit={product?.unit}
               />
             );
           })}

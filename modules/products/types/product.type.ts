@@ -3,6 +3,8 @@ export interface ProductType {
   name: string;
   catId: number;
   price: number;
-  image?: string
+  image?: string;
   description: string;
+  quantity?: number;
+  unit?: "mL" | "g" | "pcs" | "set";
 }

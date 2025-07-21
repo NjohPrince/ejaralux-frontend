@@ -5,8 +5,9 @@ import classes from "./productcard.module.css";
 
 import { ProductType } from "@/modules/products/types/product.type";
 import { slugify } from "@/shared/lib/utils/slugify.util";
-import { categories } from "@/shared/lib/utils/categories.util";
+import { categories } from "@/shared/lib/data/categories.util";
 import LazyImageAtom from "@/shared/components/atoms/lazy-image/lazy-image.atom";
+import { formatQuantityAvailability } from "@/shared/lib/utils/map-unit.util";
 
 const ProductCardMolecule: React.FC<ProductType> = ({
   id,
@@ -15,6 +16,8 @@ const ProductCardMolecule: React.FC<ProductType> = ({
   image,
   catId,
   description,
+  quantity,
+  unit,
 }) => {
   return (
     <Link
@@ -44,7 +47,8 @@ const ProductCardMolecule: React.FC<ProductType> = ({
             <p>{description}</p>
           </div>
         </div>
-        <div className={`${classes.price} flex`}>
+        <div className={`${classes.price} flex space-between`}>
+          <p>{formatQuantityAvailability(quantity as number, unit)}</p>
           <h3>${price}</h3>
         </div>
       </article>

@@ -35,14 +35,20 @@ const LazyImageAtom: React.FC<LazyImageAtomProps> = ({
   }, []);
 
   return (
-    <div ref={wrapperRef} className={`${className}`}>
+    <div
+      style={{
+        overflow: "hidden",
+      }}
+      ref={wrapperRef}
+      className={`${className}`}
+    >
       {isInView && (
         <Image
           src={src}
           alt={alt}
           loading="lazy"
           placeholder="blur"
-          blurDataURL="/images/products/image11.webp"
+          blurDataURL="/images/products/blur.webp"
           {...props}
         />
       )}

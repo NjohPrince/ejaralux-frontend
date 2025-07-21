@@ -1,0 +1,10 @@
+.back {
+  background-color: transparent;
+  border: 1px solid;
+  cursor: pointer;
+  color: var(--dark-color);
+  font-size: 1.8rem;
+  font-weight: 300;
+  padding: 8px 24px;
+  padding-left: 16px;
+}

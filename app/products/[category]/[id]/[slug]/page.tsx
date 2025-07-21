@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import NavbarOrganism from "@/shared/components/organisms/navbar/navbar.organism";
-import { products } from "@/shared/lib/utils/products.util";
+import { products } from "@/shared/lib/data/products.util";
 import ProductDetailTemplate from "@/modules/products/components/templates/product-detail/product-detail.template";
 
 interface ProductPageProps {
