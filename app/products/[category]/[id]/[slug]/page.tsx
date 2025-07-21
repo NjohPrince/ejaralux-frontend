@@ -24,10 +24,10 @@ export async function generateMetadata({
     };
 
   return {
-    title: `${product?.name} | EJARAFLUX`,
+    title: `${product?.name} | EJARALUX`,
     description: `${product?.description} Now available at only $${product?.price}.`,
     openGraph: {
-      title: `${product?.name} | EJARAFLUX`,
+      title: `${product?.name} | EJARALUX`,
       description: product?.description,
       images: [
         {
