@@ -1,6 +1,12 @@
 import Link from "next/link";
+import { Metadata } from "next";
 
 import classes from "./not-found.module.css";
+
+export const metadata: Metadata = {
+  title: "Not Found | EJARALUX",
+  description: "Could not find requested resource",
+};
 
 export default function NotFound() {
   return (

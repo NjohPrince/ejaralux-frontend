@@ -1,0 +1,23 @@
+.auth {
+  max-width: 528px;
+}
+
+.auth h2 {
+  font-size: 3.2rem;
+  font-family: var(--font-primary);
+}
+
+.fields label,
+.actions p,
+.reference a {
+  font-size: 1.6rem;
+  color: var(--dark-color);
+}
+
+.actions p a {
+  text-decoration: underline;
+}
+
+.reference {
+  justify-content: flex-end;
+}
