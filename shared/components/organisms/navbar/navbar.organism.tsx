@@ -21,7 +21,7 @@ const NavbarOrganism = () => {
       className={`${classes.navbar} flex a-center space-between`}
     >
       <div className={`${classes.navbar__logo}`}>
-        <Link href="/">EJARAFLUX</Link>
+        <Link href="/">EJARALUX</Link>
       </div>
       <ul className={`${classes.navbar__links} flex a-center gap-32`}>
         <Link
