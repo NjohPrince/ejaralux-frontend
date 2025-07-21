@@ -6,21 +6,16 @@ import Link from "next/link";
 import classes from "../auth.module.css";
 
 import InputAtom from "@/shared/components/atoms/input/input.atom";
-import { RegisterDataType } from "@/modules/auth/types/auth.types";
+import { ResetPasswordDataType } from "@/modules/auth/types/auth.types";
 import UseFormHook from "@/shared/lib/hooks/use-form.hook";
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import LockIcon from "@/shared/components/icons/lock.icon";
-import MailIcon from "@/shared/components/icons/mail.icon";
 import EyeOpenIcon from "@/shared/components/icons/eye-open.icon";
 import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
-import UserIcon from "@/shared/components/icons/user.icon";
 import { registerValidation } from "@/modules/auth/lib/validations/register.validation";
 
-const SignUpTemplate = () => {
-  const [form, setForm] = useState<RegisterDataType>({
-    firstName: "",
-    lastName: "",
-    email: "",
+const ChangePasswordTemplate = () => {
+  const [form, setForm] = useState<ResetPasswordDataType>({
     password: "",
     confirmPassword: "",
   });
@@ -30,18 +25,18 @@ const SignUpTemplate = () => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const { email, password, confirmPassword, firstName, lastName } = form;
+  const { password, confirmPassword } = form;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    updateForm(e.target.name as keyof RegisterDataType, e.target.value);
+    updateForm(e.target.name as keyof ResetPasswordDataType, e.target.value);
   };
 
   const launchAPI = async () => {
     setLoading(true);
   };
 
-  const { handleSubmit, updateForm } = UseFormHook<RegisterDataType>(
+  const { handleSubmit, updateForm } = UseFormHook<ResetPasswordDataType>(
     form,
     trigger,
     setTrigger,
@@ -51,56 +46,15 @@ const SignUpTemplate = () => {
 
   return (
     <div className={`${classes.auth} w-full flex col gap-32`}>
-      <h2>Create an account</h2>
+      <h2>Reset your password</h2>
 
       <form
         onSubmit={handleSubmit}
         className={`${classes.form} flex col gap-24 w-full`}
       >
         <div className={`${classes.form__fields} flex col gap-16 w-full`}>
-          <div className={`${classes.names} flex gap-16 w-full`}>
-            <div className={`${classes.fields} flex col gap-4 w-full`}>
-              <label htmlFor="firstName">First Name</label>
-              <InputAtom
-                value={firstName}
-                name="firstName"
-                id="firstName"
-                onChange={onChange}
-                iconLeft={<UserIcon size="20" color="var(--dark-color)" />}
-                placeholder="John G."
-                ariaLabel="First Name"
-              />
-            </div>
-
-            <div className={`${classes.fields} flex col gap-4 w-full`}>
-              <label htmlFor="lastName">Last Name</label>
-              <InputAtom
-                value={lastName}
-                name="lastName"
-                id="lastName"
-                onChange={onChange}
-                iconLeft={<UserIcon size="20" color="var(--dark-color)" />}
-                placeholder="Lake"
-                ariaLabel="Last Name"
-              />
-            </div>
-          </div>
-
           <div className={`${classes.fields} flex col gap-4 w-full`}>
-            <label htmlFor="email">E-Mail Address</label>
-            <InputAtom
-              value={email}
-              name="email"
-              id="email"
-              onChange={onChange}
-              iconLeft={<MailIcon size="20" color="var(--dark-color)" />}
-              placeholder="example@ejaralux.com"
-              ariaLabel="Email address"
-            />
-          </div>
-
-          <div className={`${classes.fields} flex col gap-4 w-full`}>
-            <label htmlFor="email">Create a Password</label>
+            <label htmlFor="email">Create a New Password</label>
             <InputAtom
               value={password}
               name="password"
@@ -153,8 +107,8 @@ const SignUpTemplate = () => {
           </div>
 
           <ButtonAtom
-            label="Create an Account"
-            ariaLabel="Create an Account"
+            label="Reset my Password"
+            ariaLabel="Reset my Password"
             type="submit"
             loading={loading}
             normal={true}
@@ -163,7 +117,7 @@ const SignUpTemplate = () => {
 
         <div className={`${classes.actions} w-full`}>
           <p>
-            Already have an account?{" "}
+            Remember your password?{" "}
             <Link
               href={"/auth/login"}
               style={{ color: "var(--dark-color)", fontWeight: "600" }}
@@ -178,4 +132,4 @@ const SignUpTemplate = () => {
   );
 };
 
-export default SignUpTemplate;
+export default ChangePasswordTemplate;
