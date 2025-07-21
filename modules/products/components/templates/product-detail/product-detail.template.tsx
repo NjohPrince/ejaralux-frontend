@@ -65,17 +65,37 @@ const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
         <GoBackAtom />
       </div>
       <div className={`${classes.details} flex gap-32`}>
-        <div className={`${classes.image__container}`}>
-          <LazyImageAtom
-            src={`${product?.image}`}
-            alt={product?.name}
-            width={900}
-            height={900}
-            className={`${classes.image}`}
-            onError={(e) => {
-              e.currentTarget.src = "/images/products/image11.webp";
-            }}
-          />
+        <div className={`${classes.group} flex gap-4`}>
+          <div className={`${classes.image__container}`}>
+            <LazyImageAtom
+              src={`${product?.image}`}
+              alt={product?.name}
+              width={900}
+              height={900}
+              className={`${classes.image}`}
+              onError={(e) => {
+                e.currentTarget.src = "/images/products/image11.webp";
+              }}
+            />
+          </div>
+          <div className={`${classes.imgs} flex col gap-4`}>
+            {Array(3)
+              .fill(0)
+              .map((_, index) => (
+                <div key={index}>
+                  <LazyImageAtom
+                    src={`${product?.image}`}
+                    alt={product?.name}
+                    width={900}
+                    height={900}
+                    className={`${classes.image}`}
+                    onError={(e) => {
+                      e.currentTarget.src = "/images/products/image11.webp";
+                    }}
+                  />
+                </div>
+              ))}
+          </div>
         </div>
 
         <div className={`flex col gap-16`}>
