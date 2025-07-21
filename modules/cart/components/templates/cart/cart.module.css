@@ -1,5 +1,6 @@
-.details,
-.back {
+.items,
+.back,
+.checkout {
   padding: 48px 12vw;
   width: 100%;
 }
@@ -8,6 +9,102 @@
   padding-bottom: 0;
 }
 
-.details {
+.checkout {
+  padding-top: 0;
+}
+
+.items {
   padding-top: 16px;
+}
+
+.details {
+  background: var(--white-color);
+  padding: 16px;
+}
+
+.details .data {
+  flex: 1;
+  -ms-flex: 1;
+}
+
+.details .image__container {
+  width: 200px;
+  height: 200px;
+}
+
+.details img {
+  object-fit: cover;
+  -o-object-fit: cover;
+  height: 200px;
+  width: 200px;
+}
+
+.details h2 {
+  font-size: 2.4rem;
+  font-family: var(--font-primary);
+}
+
+.details p {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.head .availability {
+  font-weight: 500;
+}
+
+.head .category {
+  color: var(--white-color);
+  background: var(--dark-color);
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  padding: 8px 16px;
+  width: fit-content;
+  font-size: 1.4rem;
+}
+
+.price h3 {
+  font-size: 2.4rem;
+}
+
+.cart__control h3 {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.total {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+.total span {
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+
+.quantity button,
+.quantity span {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.quantity button {
+  font-size: 2rem;
+}
+
+.quantity button {
+  width: 45px;
+  height: 45px;
+  background: var(--white-color);
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  outline: none;
+}
+
+.total h3 {
+  font-family: var(--font-primary);
+  font-size: 2.4rem;
 }

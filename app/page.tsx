@@ -35,6 +35,7 @@ export default function Home() {
             <Link href={"/products"} className={`${classes.navbar__link}`}>
               <ButtonAtom
                 label="Browse Products"
+                ariaLabel="Browse products"
                 iconLeft={<SparkleIcon size="20" />}
               />
             </Link>
