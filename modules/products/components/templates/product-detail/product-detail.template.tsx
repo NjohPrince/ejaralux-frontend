@@ -13,13 +13,10 @@ import GoBackAtom from "@/shared/components/atoms/go-back/go-back.atom";
 import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks/redux.hooks";
 import { RootState } from "@/shared/redux/store";
 import {
-  addToCart,
-  removeFromCart,
-} from "@/shared/redux/features/cart/cart.slice";
-import {
   NotificationTitleType,
   showNotification,
 } from "@/shared/redux/features/notification/notification.slice";
+import { addToCart, removeFromCart } from "@/modules/cart/redux/features/cart/cart.slice";
 
 const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
   product,
