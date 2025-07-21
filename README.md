@@ -74,3 +74,5 @@ npm run dev
 ### Project Architecture
 
 - Project architecture explained here: [Click Me](https://github.com/NjohPrince/ejaralux-frontend/blob/main/ARCHITECTURE.md)
+
+- What could be made better: [Click Me](https://github.com/NjohPrince/ejaralux-frontend/blob/main/IMPROVEMENTS.md)
