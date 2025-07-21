@@ -31,13 +31,13 @@
 
   --blue-color: #6e84f9;
 
-  --success-color: #3aff82;
+  --success-color: #008000;
   --error-color: #ff4d4d;
-  --warning-color: #ffc94d;
+  --warning-color: #f0ae12;
 
-  --success-color-10: rgba(58, 255, 130, 0.1);
+  --success-color-10: rgba(0, 128, 0, 0.1);
   --error-color-10: rgba(255, 77, 77, 0.1);
-  --warning-color-10: rgba(255, 201, 77, 0.1);
+  --warning-color-10: rgba(240, 174, 18, 0.1);
 }
 
 html {

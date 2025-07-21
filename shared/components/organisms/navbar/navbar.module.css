@@ -17,10 +17,10 @@
 
 .cart__count {
   position: absolute;
-  top: -8px;
-  right: -10px;
-  width: 18px;
-  height: 18px;
+  top: -12px;
+  right: -14px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

@@ -1,18 +1,19 @@
+import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import notificationSlice from "./features/notification/notification.slice";
 import cartSlice from "./features/cart/cart.slice";
 
-const persistConfig = {
+const cartPersistConfig = {
   key: "cart",
   storage,
-  whitelist: ["cart"],
+  whitelist: ["items"],
 };
 
-const combinedRootReducers = {
-  notificationSlice,
-  cart: persistReducer(persistConfig, cartSlice),
-};
+const rootReducer = combineReducers({
+  notificationSlice: notificationSlice,
+  cartSlice: persistReducer(cartPersistConfig, cartSlice),
+});
 
-export default combinedRootReducers;
+export default rootReducer;

@@ -56,12 +56,12 @@ const NotificationOrganism = (): JSX.Element => {
             : "var(--success-color-10)",
         borderLeft:
           notificationState.title === NotificationTitleType.ERROR
-            ? "1px solid var(--error-color)"
+            ? "2px solid var(--error-color)"
             : notificationState.title === NotificationTitleType.WARNING
-            ? "1px solid var(--warning-color)"
+            ? "2px solid var(--warning-color)"
             : notificationState.title === NotificationTitleType.NONE
             ? ""
-            : "1px solid var(--success-color)",
+            : "2px solid var(--success-color)",
       }}
     >
       <div

@@ -10,13 +10,54 @@ import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import ProductCardMolecule from "../../molecules/product-card/product-card.molecule";
 import { products } from "@/shared/lib/data/products.util";
 import GoBackAtom from "@/shared/components/atoms/go-back/go-back.atom";
+import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks/redux.hooks";
+import { RootState } from "@/shared/redux/store";
+import {
+  addToCart,
+  removeFromCart,
+} from "@/shared/redux/features/cart/cart.slice";
+import {
+  NotificationTitleType,
+  showNotification,
+} from "@/shared/redux/features/notification/notification.slice";
 
 const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
   product,
 }) => {
+  const dispatch = useAppDispatch();
+  const cartState = useAppSelector((state: RootState) => state.cartSlice);
+
   const relatedProducts = products
     .filter((prod) => prod.catId === product.catId && prod.id !== product.id)
     .slice(0, 4);
+
+  const addToCartHandler = (action: "add" | "remove") => {
+    if (action === "add") {
+      dispatch(addToCart(product));
+      dispatch(
+        showNotification({
+          message: "Product added to cart",
+          title: NotificationTitleType.SUCCESS,
+        })
+      );
+    } else {
+      dispatch(removeFromCart(product.id));
+      dispatch(
+        showNotification({
+          message: "Product removed from cart",
+          title: NotificationTitleType.SUCCESS,
+        })
+      );
+    }
+  };
+
+  const checkProductInCart = (id: number) => {
+    return cartState.items.some((item) => item.id === id);
+  };
+
+  const buttonText = checkProductInCart(product.id)
+    ? "Remove from Cart"
+    : "Add to Cart";
 
   return (
     <>
@@ -47,7 +88,15 @@ const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
             <h3>${product?.price}</h3>
           </div>
 
-          <ButtonAtom label="Add to Cart" />
+          <ButtonAtom
+            ariaLabel={buttonText}
+            onClick={() =>
+              addToCartHandler(
+                checkProductInCart(product?.id) ? "remove" : "add"
+              )
+            }
+            label={buttonText}
+          />
         </div>
       </div>
       <div className={`${classes.related} flex col gap-12`}>
