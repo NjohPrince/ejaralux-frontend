@@ -76,7 +76,6 @@ const ChangePasswordTemplate = () => {
                 e?.preventDefault();
                 setShowPassword(!showPassword);
               }}
-              normal
             />
           </div>
 

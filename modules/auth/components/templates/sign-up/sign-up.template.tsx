@@ -122,7 +122,6 @@ const SignUpTemplate = () => {
                 e?.preventDefault();
                 setShowPassword(!showPassword);
               }}
-              normal
             />
           </div>
 

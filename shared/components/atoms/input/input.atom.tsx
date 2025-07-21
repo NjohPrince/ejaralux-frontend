@@ -25,14 +25,13 @@ const InputAtom: React.FC<InputProps> = ({
   name,
   value,
   ariaLabel,
-  normal,
   type = "text",
   id,
   action,
   onChange,
 }: InputProps) => {
   return (
-    <div className={`${classes.wrapper} ${normal ? classes.normal : ""}`}>
+    <div className={`${classes.wrapper}`}>
       {iconLeft ? <div className={`${classes.icon__left}`}>{iconLeft}</div> : null}
       <input
         aria-label={ariaLabel}

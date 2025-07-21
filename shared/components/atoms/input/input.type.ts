@@ -8,7 +8,6 @@ export type InputProps = {
   value: string;
   id: string;
   ariaLabel?: string;
-  normal?: boolean;
   type?: "text" | "password";
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   action?: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;

@@ -90,7 +90,6 @@ const LoginTemplate = () => {
                 e?.preventDefault();
                 setShowPassword(!showPassword);
               }}
-              normal
             />
 
             <div className={`${classes.reference} w-full flex`}>
