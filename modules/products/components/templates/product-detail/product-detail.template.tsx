@@ -16,13 +16,19 @@ import {
   NotificationTitleType,
   showNotification,
 } from "@/shared/redux/features/notification/notification.slice";
-import { addToCart, removeFromCart } from "@/modules/cart/redux/features/cart/cart.slice";
+import {
+  addToCart,
+  removeFromCart,
+} from "@/modules/cart/redux/features/cart/cart.slice";
+import { formatQuantityAvailability } from "@/shared/lib/utils/map-unit.util";
+import { categories } from "@/shared/lib/data/categories.util";
 
 const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
   product,
 }) => {
   const dispatch = useAppDispatch();
   const cartState = useAppSelector((state: RootState) => state.cartSlice);
+  const category = categories.find((cat) => cat.id === product.catId);
 
   const relatedProducts = products
     .filter((prod) => prod.catId === product.catId && prod.id !== product.id)
@@ -63,18 +69,6 @@ const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
       </div>
       <div className={`${classes.details} flex gap-32`}>
         <div className={`${classes.group} flex gap-4`}>
-          <div className={`${classes.image__container}`}>
-            <LazyImageAtom
-              src={`${product?.image}`}
-              alt={product?.name}
-              width={900}
-              height={900}
-              className={`${classes.image}`}
-              onError={(e) => {
-                e.currentTarget.src = "/images/products/image11.webp";
-              }}
-            />
-          </div>
           <div className={`${classes.imgs} flex col gap-4`}>
             {Array(3)
               .fill(0)
@@ -93,16 +87,39 @@ const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
                 </div>
               ))}
           </div>
+          <div className={`${classes.image__container}`}>
+            <LazyImageAtom
+              src={`${product?.image}`}
+              alt={product?.name}
+              width={900}
+              height={900}
+              className={`${classes.image}`}
+              onError={(e) => {
+                e.currentTarget.src = "/images/products/image11.webp";
+              }}
+            />
+          </div>
         </div>
 
-        <div className={`flex col gap-16`}>
-          <div className={`${classes.head} flex col gap-8`}>
-            <h2>{product?.name}</h2>
-            <p>{product?.description}</p>
-          </div>
+        <div className={`flex col gap-16 space-between`}>
+          <div className={`flex col gap-16`}>
+            <div className={`${classes.head} flex col gap-8`}>
+              <div className="flex col gap-24">
+                <p className={`${classes.category}`}>{category?.name}</p>
+                <p className={`${classes.availability}`}>
+                  {formatQuantityAvailability(
+                    product?.quantity as number,
+                    product?.unit
+                  )}
+                </p>
+              </div>
+              <h2>{product?.name}</h2>
+              <p>{product?.description}</p>
+            </div>
 
-          <div className={`${classes.price} flex`}>
-            <h3>${product?.price}</h3>
+            <div className={`${classes.price} flex`}>
+              <h3>${product?.price}</h3>
+            </div>
           </div>
 
           <ButtonAtom

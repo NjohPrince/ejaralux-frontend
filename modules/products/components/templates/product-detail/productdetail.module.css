@@ -59,12 +59,25 @@
   font-weight: 300;
 }
 
-.price {
-  justify-content: flex-end;
+.head .availability {
+  font-weight: 500;
+}
+
+.head .category {
+  color: var(--white-color);
+  background: var(--dark-color);
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  padding: 8px 16px;
+  width: fit-content;
+  font-size: 1.6rem;
 }
 
 .price h3 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .products__list {

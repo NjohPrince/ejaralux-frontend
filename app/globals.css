@@ -143,6 +143,14 @@ input:focus-visible {
   outline: 1px solid var(--secondary-white-color);
 }
 
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .flex {
   display: flex;
   display: -ms-flexbox;
