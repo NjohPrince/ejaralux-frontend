@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { dmSans } from "../shared/lib/utils/fonts.util";
+import Providers from "@/shared/redux/provider";
 
 export const metadata: Metadata = {
   title: "EJARALUX | Luxury Skin, Timeless Glow",
@@ -17,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable}`}>{children}</body>
+      <body className={`${dmSans.variable}`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
