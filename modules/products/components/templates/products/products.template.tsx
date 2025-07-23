@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { JSX } from "react";
 
 import classes from "./products.module.css";
 
@@ -8,8 +9,17 @@ import CategoryGroupMolecule from "../../molecules/category-group/category-group
 import { products } from "@/shared/lib/data/products.util";
 import ProductCardMolecule from "../../molecules/product-card/product-card.molecule";
 import { usePaginationHook } from "@/shared/lib/hooks/use-pagination.hook";
+import { ProductType } from "@/modules/products/types/product.type";
 
-const ProductsTemplate = () => {
+/**
+ * The ProductsTemplate component renders the main products page.
+ *
+ * It displays the navigation bar, the list of products filtered by category,
+ * and the pagination controls.
+ *
+ * @returns {JSX.Element} The ProductsTemplate component.
+ */
+const ProductsTemplate = (): JSX.Element => {
   const [index, setActiveIndex] = React.useState(0);
   const [filteredProducts, setFilteredProducts] = React.useState(products);
 
@@ -48,7 +58,7 @@ const ProductsTemplate = () => {
       <div className={`${classes.products__list}`}>
         {paginatedProducts &&
           paginatedProducts.length > 0 &&
-          paginatedProducts.map((product, index) => {
+          paginatedProducts.map((product: ProductType, index: number) => {
             return (
               <ProductCardMolecule
                 name={product?.name}

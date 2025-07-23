@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { ReactElement } from "react";
 import Link from "next/link";
 
 import classes from "./navbar.module.css";
@@ -11,7 +11,13 @@ import UserIcon from "../../icons/user.icon";
 import { useAppSelector } from "@/shared/lib/hooks/redux.hooks";
 import { RootState } from "@/shared/redux/store";
 
-const NavbarOrganism = () => {
+/**
+ * A reusable component for rendering the site's navigation bar.
+ *
+ * @function NavbarOrganism
+ * @returns {ReactElement} The navbar component.
+ */
+const NavbarOrganism = (): ReactElement => {
   const cartState = useAppSelector((state: RootState) => state.cartSlice);
 
   return (

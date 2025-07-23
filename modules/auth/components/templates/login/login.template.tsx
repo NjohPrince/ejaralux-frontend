@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { JSX } from "react";
 
 import classes from "../auth.module.css";
 
@@ -15,7 +16,18 @@ import MailIcon from "@/shared/components/icons/mail.icon";
 import EyeOpenIcon from "@/shared/components/icons/eye-open.icon";
 import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
 
-const LoginTemplate = () => {
+/**
+ * LoginTemplate
+ *
+ * This component renders the login form for the application.
+ * It includes fields for entering email and password, and handles
+ * form submission with validation. The password field has an option
+ * to toggle visibility. It also provides links for password recovery
+ * and account registration.
+ *
+ * @returns {JSX.Element} The rendered login form component.
+ */
+const LoginTemplate = (): JSX.Element => {
   const [form, setForm] = useState<LoginDataType>({
     email: "",
     password: "",

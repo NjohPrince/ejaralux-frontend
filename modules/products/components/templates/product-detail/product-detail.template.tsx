@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { ReactElement } from "react";
 
 import classes from "./productdetail.module.css";
 
@@ -23,9 +23,30 @@ import {
 import { formatQuantityAvailability } from "@/shared/lib/utils/map-unit.util";
 import { categories } from "@/shared/lib/data/categories.util";
 
+/**
+ * ProductDetailTemplate is a React component that renders a product detail page.
+ *
+ * The component is passed a product object as a prop, which contains the product's
+ * name, description, price, image, category, and quantity.
+ *
+ * The component renders a product detail page with the product's name, description,
+ * price, image, and category. It also renders a "Add to Cart" button, which when
+ * clicked, adds the product to the cart and shows a success notification.
+ * If the product is already in the cart, the button text changes to "Remove from Cart"
+ * and the button's onClick handler removes the product from the cart.
+ *
+ * The component also renders a list of related products at the bottom of the page.
+ *
+ * @param {Object} props The component props object.
+ * @param {ProductType} props.product The product object.
+ *
+ * @returns {ReactElement} The product detail page JSX element.
+ */
 const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
   product,
-}) => {
+}: {
+  product: ProductType;
+}): ReactElement => {
   const dispatch = useAppDispatch();
   const cartState = useAppSelector((state: RootState) => state.cartSlice);
   const category = categories.find((cat) => cat.id === product.catId);

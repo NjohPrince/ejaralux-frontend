@@ -5,6 +5,7 @@ import "./globals.css";
 import { dmSans } from "../shared/lib/utils/fonts.util";
 import Providers from "@/shared/redux/provider";
 import NotificationTemplate from "@/shared/components/templates/notification/notification.template";
+import { JSX } from "react";
 
 export const metadata: Metadata = {
   title: "EJARALUX | Luxury Skin, Timeless Glow",
@@ -36,11 +37,20 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * The RootLayout component serves as the main layout structure for the application.
+ * It provides a consistent layout across the app by wrapping the child components
+ * with essential providers and templates.
+ *
+ * @param {Readonly<{ children: React.ReactNode }>} props - The props object containing
+ * the React children components to be wrapped.
+ * @returns {JSX.Element} The HTML structure with providers and templates applied.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): JSX.Element {
   return (
     <html lang="en">
       <body className={`${dmSans.variable}`}>

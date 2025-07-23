@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { JSX } from "react";
 
 import classes from "./page.module.css";
 
@@ -8,7 +9,17 @@ import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import SparkleIcon from "@/shared/components/icons/sparkle.icon";
 import StarIcon from "@/shared/components/icons/star.icon";
 
-export default function Home() {
+/**
+ * The Home component serves as the main landing page of the application.
+ * It includes a navigation bar and a hero section that highlights the
+ * brand's luxury skincare offerings with a 100% natural claim.
+ * The hero section displays a series of star icons, a promotional note,
+ * a headline, a descriptive paragraph, and a call-to-action button to browse products.
+ * An image is also featured to visually represent the brand's essence.
+ *
+ * @returns {JSX.Element} The Home component JSX element.
+ */
+export default function Home(): JSX.Element {
   return (
     <div className={classes.home}>
       <NavbarOrganism />

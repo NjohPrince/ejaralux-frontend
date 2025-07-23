@@ -2,6 +2,10 @@
 
 Luxury Skin, Timeless Glow
 
+### Perequisites
+
+- Download and install the latest version of NodeJS from: [Download NodeJS](https://nodejs.org/en/download)
+
 ### Local Setup Instructions
 
 1. Clone this repository using the following command:

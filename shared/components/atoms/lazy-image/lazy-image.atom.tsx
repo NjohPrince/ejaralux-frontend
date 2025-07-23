@@ -9,6 +9,17 @@ interface LazyImageAtomProps extends Omit<ImageProps, "src" | "alt"> {
   className?: string;
 }
 
+/**
+ * The LazyImageAtom component renders an image lazily when it comes into view.
+ * It uses the IntersectionObserver API to detect when the image is in the viewport.
+ * The image is wrapped in a div with an overflow of hidden to prevent layout shifting.
+ * The image is rendered with a blur placeholder and loaded with lazy loading.
+ * The component takes the src and alt props as required and the className and other
+ * props as optional.
+ *
+ * @example
+ * <LazyImageAtom src="/images/products/image.jpg" alt="An image of a product" />
+ */
 const LazyImageAtom: React.FC<LazyImageAtomProps> = ({
   src,
   alt,

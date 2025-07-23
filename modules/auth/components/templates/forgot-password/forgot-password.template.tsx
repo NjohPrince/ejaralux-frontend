@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { JSX } from "react";
 
 import classes from "../auth.module.css";
 
@@ -12,7 +13,14 @@ import { loginValidation } from "@/modules/auth/lib/validations/login.validation
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import MailIcon from "@/shared/components/icons/mail.icon";
 
-const ForgotPasswordTemplate = () => {
+/**
+ * The Forgot Password template component.
+ *
+ * This component renders a form to request a password reset.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
+const ForgotPasswordTemplate = (): JSX.Element => {
   const [form, setForm] = useState<ForgotPasswordDataType>({
     email: "",
   });

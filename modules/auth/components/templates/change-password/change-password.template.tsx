@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { JSX } from "react";
 
 import classes from "../auth.module.css";
 
@@ -14,7 +15,20 @@ import EyeOpenIcon from "@/shared/components/icons/eye-open.icon";
 import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
 import { registerValidation } from "@/modules/auth/lib/validations/register.validation";
 
-const ChangePasswordTemplate = () => {
+/**
+ * ChangePasswordTemplate
+ *
+ * This component is a template for the change password form of the application.
+ *
+ * It will render a form with the following fields:
+ *   - New Password
+ *   - Confirm Password
+ *
+ * The component also handle the form submission and the password visibility
+ *
+ * @returns {JSX.Element} The rendered component
+ */
+const ChangePasswordTemplate = (): JSX.Element => {
   const [form, setForm] = useState<ResetPasswordDataType>({
     password: "",
     confirmPassword: "",

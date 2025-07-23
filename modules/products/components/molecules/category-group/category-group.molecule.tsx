@@ -6,6 +6,13 @@ import { categories } from "@/shared/lib/data/categories.util";
 import CategoryButtonAtom from "../../atoms/category-button/category-button.atom";
 import { CategoryGroupProps } from "./category-group.type";
 
+/**
+ * The CategoryGroupMolecule component renders a group of buttons to select a category.
+ *
+ * @param {number} [idx=0] - The index of the currently selected category.
+ * @param {React.Dispatch<React.SetStateAction<number>>} setActiveIndex - A function to set the index of the currently selected category.
+ * @returns {JSX.Element} The CategoryGroupMolecule component.
+ */
 const CategoryGroupMolecule: React.FC<CategoryGroupProps> = ({
   idx = 0,
   setActiveIndex,

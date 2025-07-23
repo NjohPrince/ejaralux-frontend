@@ -9,6 +9,21 @@ import { categories } from "@/shared/lib/data/categories.util";
 import LazyImageAtom from "@/shared/components/atoms/lazy-image/lazy-image.atom";
 import { formatQuantityAvailability } from "@/shared/lib/utils/map-unit.util";
 
+/**
+ * A ProductCardMolecule component that displays a product card. It takes in all the required fields
+ * for a product and displays them in a card format. The component is a link to the product details page.
+ *
+ * @param {string} id - The id of the product.
+ * @param {string} name - The name of the product.
+ * @param {number} price - The price of the product.
+ * @param {string} image - The URL of the product image.
+ * @param {number} catId - The id of the category the product belongs to.
+ * @param {string} description - The description of the product.
+ * @param {number} quantity - The quantity of the product in stock.
+ * @param {string} unit - The unit of measurement for the quantity.
+ *
+ * @returns A React component that displays a product card.
+ */
 const ProductCardMolecule: React.FC<ProductType> = ({
   id,
   name,

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import Link from "next/link";
 
 import classes from "../auth.module.css";
@@ -16,7 +16,23 @@ import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
 import UserIcon from "@/shared/components/icons/user.icon";
 import { registerValidation } from "@/modules/auth/lib/validations/register.validation";
 
-const SignUpTemplate = () => {
+/**
+ * SignUpTemplate
+ *
+ * This component is a template for the sign up form of the application.
+ *
+ * It will render a form with the following fields:
+ *   - First Name
+ *   - Last Name
+ *   - E-Mail Address
+ *   - Password
+ *   - Confirm Password
+ *
+ * The component also handle the form submission and the password visibility
+ *
+ * @returns {ReactNode} The rendered component
+ */
+const SignUpTemplate = (): ReactNode => {
   const [form, setForm] = useState<RegisterDataType>({
     firstName: "",
     lastName: "",
