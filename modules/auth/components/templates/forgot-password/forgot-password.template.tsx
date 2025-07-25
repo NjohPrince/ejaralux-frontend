@@ -12,6 +12,13 @@ import UseFormHook from "@/shared/lib/hooks/use-form.hook";
 import { loginValidation } from "@/modules/auth/lib/validations/login.validation";
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import MailIcon from "@/shared/components/icons/mail.icon";
+import { useAppDispatch } from "@/shared/lib/hooks/redux.hooks";
+import { forgotPasswordThunk } from "@/shared/redux/features/auth/auth.slice";
+import {
+  NotificationTitleType,
+  showNotification,
+} from "@/shared/redux/features/notification/notification.slice";
+import { BackendError } from "@/shared/lib/utils/extract-error-message.util";
 
 /**
  * The Forgot Password template component.
@@ -21,6 +28,7 @@ import MailIcon from "@/shared/components/icons/mail.icon";
  * @returns {JSX.Element} The rendered component.
  */
 const ForgotPasswordTemplate = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const [form, setForm] = useState<ForgotPasswordDataType>({
     email: "",
   });
@@ -38,6 +46,26 @@ const ForgotPasswordTemplate = (): JSX.Element => {
 
   const launchAPI = async () => {
     setLoading(true);
+
+    try {
+      await dispatch(forgotPasswordThunk(form)).unwrap();
+
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.SUCCESS,
+          message: "Almost there! Reset link sent to email",
+        })
+      );
+    } catch (err: BackendError | unknown) {
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.ERROR,
+          message: (err as BackendError).message || "Something went wrong...",
+        })
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { handleSubmit, updateForm } = UseFormHook<ForgotPasswordDataType>(

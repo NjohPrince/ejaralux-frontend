@@ -1,11 +1,12 @@
 import axiosInstance from "@/shared/lib/axios";
 
 import {
+  APIResponseType,
+  ForgotPasswordDataType,
   LoginDataType,
   LoginResponseType,
   MeResponseType,
   RegisterDataType,
-  RegisterResponseType,
 } from "../types/auth.types";
 
 export const login = async (
@@ -19,11 +20,22 @@ export const login = async (
   }
 };
 
+export const forgotPassword = async (
+  data: ForgotPasswordDataType
+): Promise<APIResponseType> => {
+  try {
+    const res = await axiosInstance.post("/auth/forgot-password", data);
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const register = async (
   data: Omit<RegisterDataType, "confirmPassword"> & {
     passwordConfirm: string;
   }
-): Promise<RegisterResponseType> => {
+): Promise<APIResponseType> => {
   try {
     const res = await axiosInstance.post("/auth/register", data);
     return res.data;

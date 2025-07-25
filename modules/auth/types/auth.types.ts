@@ -8,7 +8,7 @@ export type LoginResponseType = {
   access_token: string;
 };
 
-export type RegisterResponseType = {
+export type APIResponseType = {
   status: string;
   message: string;
 };

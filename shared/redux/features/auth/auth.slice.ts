@@ -2,16 +2,18 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import {
   fetchMe,
+  forgotPassword,
   login,
   logoutUser,
   register,
 } from "@/modules/auth/services/auth.service";
 import {
+  APIResponseType,
+  ForgotPasswordDataType,
   LoginDataType,
   LoginResponseType,
   MeResponseType,
   RegisterDataType,
-  RegisterResponseType,
 } from "@/modules/auth/types/auth.types";
 import {
   BackendError,
@@ -43,8 +45,21 @@ export const loginUser = createAsyncThunk<
   }
 });
 
+export const forgotPasswordThunk = createAsyncThunk<
+  APIResponseType,
+  ForgotPasswordDataType,
+  { rejectValue: BackendError }
+>("auth/forgot-password", async (data, { rejectWithValue }) => {
+  try {
+    const response = await forgotPassword(data);
+    return response;
+  } catch (err) {
+    return rejectWithValue(serializeAxiosError(err));
+  }
+});
+
 export const registerUser = createAsyncThunk<
-  RegisterResponseType,
+  APIResponseType,
   Omit<RegisterDataType, "confirmPassword"> & {
     passwordConfirm: string;
   },
