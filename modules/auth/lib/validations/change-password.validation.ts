@@ -1,8 +1,8 @@
 import { Validations } from "@/shared/lib/hooks/use-form.hook";
-import { ChangePasswordDataType } from "../../types/auth.types";
+import { ResetPasswordDataType } from "../../types/auth.types";
 
-export const changePasswordValidation: Validations<ChangePasswordDataType> = {
-  newPassword: {
+export const changePasswordValidation: Validations<ResetPasswordDataType> = {
+  password: {
     custom: {
       isValid: (value: string) => value.length >= 8,
       message: "Please enter a password with at least 8 characters",
