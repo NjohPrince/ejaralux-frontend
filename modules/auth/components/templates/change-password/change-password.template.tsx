@@ -13,7 +13,7 @@ import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import LockIcon from "@/shared/components/icons/lock.icon";
 import EyeOpenIcon from "@/shared/components/icons/eye-open.icon";
 import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
-import { registerValidation } from "@/modules/auth/lib/validations/register.validation";
+import { changePasswordValidation } from "@/modules/auth/lib/validations/change-password.validation";
 
 /**
  * ChangePasswordTemplate
@@ -55,7 +55,7 @@ const ChangePasswordTemplate = (): JSX.Element => {
     trigger,
     setTrigger,
     launchAPI,
-    registerValidation
+    changePasswordValidation
   );
 
   return (

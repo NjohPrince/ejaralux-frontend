@@ -9,7 +9,6 @@ import classes from "../auth.module.css";
 import InputAtom from "@/shared/components/atoms/input/input.atom";
 import { ForgotPasswordDataType } from "@/modules/auth/types/auth.types";
 import UseFormHook from "@/shared/lib/hooks/use-form.hook";
-import { loginValidation } from "@/modules/auth/lib/validations/login.validation";
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 import MailIcon from "@/shared/components/icons/mail.icon";
 import { useAppDispatch } from "@/shared/lib/hooks/redux.hooks";
@@ -19,6 +18,7 @@ import {
   showNotification,
 } from "@/shared/redux/features/notification/notification.slice";
 import { BackendError } from "@/shared/lib/utils/extract-error-message.util";
+import { forgotPasswordValidation } from "@/modules/auth/lib/validations/forgot-password.validation";
 
 /**
  * The Forgot Password template component.
@@ -73,7 +73,7 @@ const ForgotPasswordTemplate = (): JSX.Element => {
     trigger,
     setTrigger,
     launchAPI,
-    loginValidation
+    forgotPasswordValidation
   );
 
   return (

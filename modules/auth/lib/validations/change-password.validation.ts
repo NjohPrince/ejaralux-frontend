@@ -1,7 +1,7 @@
 import { Validations } from "@/shared/lib/hooks/use-form.hook";
 import { ChangePasswordDataType } from "../../types/auth.types";
 
-export const registerValidation: Validations<ChangePasswordDataType> = {
+export const changePasswordValidation: Validations<ChangePasswordDataType> = {
   newPassword: {
     custom: {
       isValid: (value: string) => value.length >= 8,
