@@ -10,6 +10,7 @@ import ButtonAtom from "../../atoms/button/button.atom";
 import UserIcon from "../../icons/user.icon";
 import { useAppSelector } from "@/shared/lib/hooks/redux.hooks";
 import { RootState } from "@/shared/redux/store";
+import { useIsLoggedIn } from "@/shared/lib/hooks/use-is-logged-in.hook";
 
 /**
  * A reusable component for rendering the site's navigation bar.
@@ -19,6 +20,7 @@ import { RootState } from "@/shared/redux/store";
  */
 const NavbarOrganism = (): ReactElement => {
   const cartState = useAppSelector((state: RootState) => state.cartSlice);
+  const isLoggedIn = useIsLoggedIn();
 
   return (
     <nav
@@ -42,7 +44,10 @@ const NavbarOrganism = (): ReactElement => {
             {String(cartState?.items.length).padStart(2, "0")}
           </span>
         </Link>
-        <Link href={"/auth/login"} className={`${classes.navbar__link}`}>
+        <Link
+          href={isLoggedIn ? "/dashboard" : "/auth/login"}
+          className={`${classes.navbar__link}`}
+        >
           <ButtonAtom label="Your Account" iconLeft={<UserIcon size="20" />} />
         </Link>
       </ul>
