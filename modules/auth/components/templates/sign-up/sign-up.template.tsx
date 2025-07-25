@@ -73,7 +73,7 @@ const SignUpTemplate = (): ReactNode => {
         showNotification({
           title: NotificationTitleType.SUCCESS,
           message:
-            "Registration successful! An email with a verification link has been sent to your email.",
+            "Registration successful! An email with a verification link has been sent to your email (ethereal email).",
         })
       );
     } catch (err: BackendError | unknown) {
