@@ -136,6 +136,7 @@ const ChangePasswordTemplate = (): JSX.Element => {
                 e?.preventDefault();
                 setShowPassword(!showPassword);
               }}
+              autoComplete={true}
             />
           </div>
 
@@ -162,6 +163,7 @@ const ChangePasswordTemplate = (): JSX.Element => {
                 e?.preventDefault();
                 setShowPassword(!showPassword);
               }}
+              autoComplete={true}
             />
           </div>
 

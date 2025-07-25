@@ -154,6 +154,7 @@ const SignUpTemplate = (): ReactNode => {
               id="password"
               onChange={onChange}
               iconLeft={<LockIcon size="20" color="var(--dark-color)" />}
+              autoComplete={true}
               iconRight={
                 showPassword ? (
                   <EyeOpenIcon size="20" color="var(--dark-color)" />
@@ -179,6 +180,7 @@ const SignUpTemplate = (): ReactNode => {
               name="confirmPassword"
               id="confirmPassword"
               onChange={onChange}
+              autoComplete={true}
               iconLeft={<LockIcon size="20" color="var(--dark-color)" />}
               iconRight={
                 showPassword ? (

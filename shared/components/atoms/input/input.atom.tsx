@@ -25,6 +25,7 @@ const InputAtom: React.FC<InputProps> = ({
   name,
   value,
   ariaLabel,
+  autoComplete = false,
   type = "text",
   id,
   action,
@@ -32,7 +33,9 @@ const InputAtom: React.FC<InputProps> = ({
 }: InputProps) => {
   return (
     <div className={`${classes.wrapper}`}>
-      {iconLeft ? <div className={`${classes.icon__left}`}>{iconLeft}</div> : null}
+      {iconLeft ? (
+        <div className={`${classes.icon__left}`}>{iconLeft}</div>
+      ) : null}
       <input
         aria-label={ariaLabel}
         id={id}
@@ -41,6 +44,7 @@ const InputAtom: React.FC<InputProps> = ({
         onChange={onChange}
         className={`${classes.input} ${iconLeft ? classes.icon : ""}`}
         type={type}
+        autoComplete={autoComplete ? "on" : "off"}
         placeholder={placeholder}
       />
       {iconRight ? (

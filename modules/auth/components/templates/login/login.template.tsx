@@ -126,6 +126,7 @@ const LoginTemplate = (): JSX.Element => {
                   <EyeClosedIcon size="20" color="var(--dark-color)" />
                 )
               }
+              autoComplete={true}
               placeholder="********"
               ariaLabel="Password"
               type={showPassword ? "text" : "password"}

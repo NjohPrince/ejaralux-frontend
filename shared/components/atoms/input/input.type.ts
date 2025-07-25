@@ -11,4 +11,5 @@ export type InputProps = {
   type?: "text" | "password";
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   action?: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  autoComplete?: boolean;
 };
