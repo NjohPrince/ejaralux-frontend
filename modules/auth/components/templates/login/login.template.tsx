@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { JSX } from "react";
+import { useRouter } from "next/navigation";
 
 import classes from "../auth.module.css";
 
@@ -15,6 +16,13 @@ import LockIcon from "@/shared/components/icons/lock.icon";
 import MailIcon from "@/shared/components/icons/mail.icon";
 import EyeOpenIcon from "@/shared/components/icons/eye-open.icon";
 import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
+import { useAppDispatch } from "@/shared/lib/hooks/redux.hooks";
+import { loginUser } from "@/shared/redux/features/auth/auth.slice";
+import {
+  NotificationTitleType,
+  showNotification,
+} from "@/shared/redux/features/notification/notification.slice";
+import { extractErrorMessage } from "@/shared/lib/utils/extract-error-message.util";
 
 /**
  * LoginTemplate
@@ -28,6 +36,8 @@ import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
  * @returns {JSX.Element} The rendered login form component.
  */
 const LoginTemplate = (): JSX.Element => {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
   const [form, setForm] = useState<LoginDataType>({
     email: "",
     password: "",
@@ -47,6 +57,30 @@ const LoginTemplate = (): JSX.Element => {
 
   const launchAPI = async () => {
     setLoading(true);
+
+    try {
+      await dispatch(loginUser(form)).unwrap();
+
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.SUCCESS,
+          message: "Login successful! Redirecting...",
+        })
+      );
+
+      router.push("/dashboard");
+    } catch (err) {
+      const message = extractErrorMessage(err, "Login failed");
+
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.ERROR,
+          message,
+        })
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { handleSubmit, updateForm } = UseFormHook<LoginDataType>(

@@ -11,7 +11,7 @@ export const loginValidation: Validations<LoginDataType> = {
   },
   password: {
     custom: {
-      isValid: (value: string) => value.length > 8,
+      isValid: (value: string) => value.length >= 8,
       message: "Invalid credentials",
     },
   },

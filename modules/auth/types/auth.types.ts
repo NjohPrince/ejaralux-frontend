@@ -3,6 +3,11 @@ export type LoginDataType = {
   password: string;
 };
 
+export type LoginResponseType = {
+  status: string;
+  access_token: string;
+};
+
 export type RegisterDataType = {
   firstName: string;
   lastName: string;
@@ -24,4 +29,20 @@ export type ChangePasswordDataType = {
   oldPassword: string;
   newPassword: string;
   confirmPassword: string;
+};
+
+export type UserDataType = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: "user" | "admin";
+  photo: string;
+};
+
+export type MeResponseType = {
+  status: string;
+  user: UserDataType;
 };
