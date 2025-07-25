@@ -70,10 +70,12 @@ const VerifyEmailPage = () => {
         textAlign: "center",
       }}
     >
-      {loading && <p>Verifying your email...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {loading && <p style={{ fontSize: "2rem" }}>Verifying your email...</p>}
+      {error && (
+        <p style={{ color: "var(--error-color)", fontSize: "2rem" }}>{error}</p>
+      )}
       {success && (
-        <p style={{ color: "green" }}>
+        <p style={{ color: "var(--success-color)", fontSize: "2rem" }}>
           Email verified! Redirecting to login...
         </p>
       )}
