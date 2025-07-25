@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { JSX } from "react";
 
@@ -14,6 +15,13 @@ import LockIcon from "@/shared/components/icons/lock.icon";
 import EyeOpenIcon from "@/shared/components/icons/eye-open.icon";
 import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
 import { changePasswordValidation } from "@/modules/auth/lib/validations/change-password.validation";
+import { resetPasswordThunk } from "@/shared/redux/features/auth/auth.slice";
+import {
+  NotificationTitleType,
+  showNotification,
+} from "@/shared/redux/features/notification/notification.slice";
+import { useAppDispatch } from "@/shared/lib/hooks/redux.hooks";
+import { BackendError } from "@/shared/lib/utils/extract-error-message.util";
 
 /**
  * ChangePasswordTemplate
@@ -29,10 +37,16 @@ import { changePasswordValidation } from "@/modules/auth/lib/validations/change-
  * @returns {JSX.Element} The rendered component
  */
 const ChangePasswordTemplate = (): JSX.Element => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+
   const [form, setForm] = useState<ResetPasswordDataType>({
     password: "",
     confirmPassword: "",
   });
+
+  const token = searchParams.get("token") || "";
 
   const [trigger, setTrigger] = useState(false);
 
@@ -48,6 +62,32 @@ const ChangePasswordTemplate = (): JSX.Element => {
 
   const launchAPI = async () => {
     setLoading(true);
+
+    try {
+      await dispatch(
+        resetPasswordThunk({ ...form, passwordConfirm: confirmPassword, token })
+      ).unwrap();
+
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.SUCCESS,
+          message: "Password changed successfully! Redirecting...",
+        })
+      );
+
+      setTimeout(() => {
+        router.push("/auth/login");
+      }, 3000);
+    } catch (err: BackendError | unknown) {
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.ERROR,
+          message: (err as BackendError).message || "Something went wrong...",
+        })
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { handleSubmit, updateForm } = UseFormHook<ResetPasswordDataType>(
@@ -57,6 +97,12 @@ const ChangePasswordTemplate = (): JSX.Element => {
     launchAPI,
     changePasswordValidation
   );
+
+  useEffect(() => {
+    if (!token) {
+      router.push("/auth/login");
+    }
+  }, [token, router]);
 
   return (
     <div className={`${classes.auth} w-full flex col gap-32`}>

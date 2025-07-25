@@ -6,6 +6,7 @@ import {
   login,
   logoutUser,
   register,
+  resetPassword,
   verifyEmail,
 } from "@/modules/auth/services/auth.service";
 import {
@@ -15,6 +16,7 @@ import {
   LoginResponseType,
   MeResponseType,
   RegisterDataType,
+  ResetPasswordDataType,
 } from "@/modules/auth/types/auth.types";
 import {
   BackendError,
@@ -82,6 +84,22 @@ export const verifyEmailThunk = createAsyncThunk<
   try {
     const res = await verifyEmail(verificationCode);
     return res;
+  } catch (err) {
+    return rejectWithValue(serializeAxiosError(err));
+  }
+});
+
+export const resetPasswordThunk = createAsyncThunk<
+  APIResponseType,
+  Omit<ResetPasswordDataType, "confirmPassword"> & {
+    passwordConfirm: string;
+    token: string;
+  },
+  { rejectValue: BackendError }
+>("auth/reset-password", async (data, { rejectWithValue }) => {
+  try {
+    const response = await resetPassword(data);
+    return response;
   } catch (err) {
     return rejectWithValue(serializeAxiosError(err));
   }

@@ -7,6 +7,7 @@ import {
   LoginResponseType,
   MeResponseType,
   RegisterDataType,
+  ResetPasswordDataType,
 } from "../types/auth.types";
 
 export const login = async (
@@ -51,6 +52,20 @@ export const verifyEmail = async (
     const res = await axiosInstance.get(
       `/auth/verifyemail/${verificationCode}`
     );
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const resetPassword = async (
+  data: Omit<ResetPasswordDataType, "confirmPassword"> & {
+    passwordConfirm: string;
+    token: string;
+  }
+): Promise<APIResponseType> => {
+  try {
+    const res = await axiosInstance.post("/auth/reset-password/", data);
     return res.data;
   } catch (err) {
     throw err;
