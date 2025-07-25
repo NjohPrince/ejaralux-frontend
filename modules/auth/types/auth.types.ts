@@ -13,6 +13,11 @@ export type APIResponseType = {
   message: string;
 };
 
+export type APIResponseTypeWithData<T> = {
+  status: string;
+  data: T;
+};
+
 export type RegisterDataType = {
   firstName: string;
   lastName: string;

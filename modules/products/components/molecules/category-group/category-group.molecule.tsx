@@ -15,11 +15,24 @@ import { CategoryGroupProps } from "./category-group.type";
  */
 const CategoryGroupMolecule: React.FC<CategoryGroupProps> = ({
   idx = 0,
+  cats,
   setActiveIndex,
 }) => {
   return (
     <div className={`${classes.group} flex a-center`}>
-      {categories &&
+      {cats &&
+        cats.length > 0 &&
+        cats.map((category, index) => (
+          <CategoryButtonAtom
+            key={category.id}
+            label={category.name}
+            setActiveIndex={setActiveIndex}
+            active={index === idx}
+            index={index}
+          />
+        ))}
+      {cats?.length === 0 &&
+        categories &&
         categories.length > 0 &&
         categories.map((category, index) => (
           <CategoryButtonAtom

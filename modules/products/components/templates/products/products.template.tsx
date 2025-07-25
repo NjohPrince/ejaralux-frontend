@@ -10,6 +10,17 @@ import { products } from "@/shared/lib/data/products.util";
 import ProductCardMolecule from "../../molecules/product-card/product-card.molecule";
 import { usePaginationHook } from "@/shared/lib/hooks/use-pagination.hook";
 import { ProductType } from "@/modules/products/types/product.type";
+import { CategoryType } from "@/modules/products/types/category.type";
+import { useAppDispatch } from "@/shared/lib/hooks/redux.hooks";
+import {
+  NotificationTitleType,
+  showNotification,
+} from "@/shared/redux/features/notification/notification.slice";
+
+type ProductTemplateProps = {
+  categories: CategoryType[];
+  error?: string;
+};
 
 /**
  * The ProductsTemplate component renders the main products page.
@@ -19,9 +30,23 @@ import { ProductType } from "@/modules/products/types/product.type";
  *
  * @returns {JSX.Element} The ProductsTemplate component.
  */
-const ProductsTemplate = (): JSX.Element => {
+const ProductsTemplate: React.FC<ProductTemplateProps> = ({
+  categories,
+  error,
+}): JSX.Element => {
   const [index, setActiveIndex] = React.useState(0);
+  const dispatch = useAppDispatch();
   const [filteredProducts, setFilteredProducts] = React.useState(products);
+
+  if (error && error.length > 0) {
+    dispatch(
+      showNotification({
+        title: NotificationTitleType.SUCCESS,
+        message:
+          "An error occured loading the categories. Please refresh the page to try again",
+      })
+    );
+  }
 
   React.useEffect(() => {
     if (index === 0) {
@@ -53,7 +78,11 @@ const ProductsTemplate = (): JSX.Element => {
           </div>
         </div>
       </main>
-      <CategoryGroupMolecule idx={index} setActiveIndex={setActiveIndex} />
+      <CategoryGroupMolecule
+        idx={index}
+        setActiveIndex={setActiveIndex}
+        cats={categories}
+      />
 
       <div className={`${classes.products__list}`}>
         {paginatedProducts &&
