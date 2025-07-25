@@ -4,6 +4,8 @@ import {
   LoginDataType,
   LoginResponseType,
   MeResponseType,
+  RegisterDataType,
+  RegisterResponseType,
 } from "../types/auth.types";
 
 export const login = async (
@@ -11,6 +13,19 @@ export const login = async (
 ): Promise<LoginResponseType> => {
   try {
     const res = await axiosInstance.post("/auth/login", data);
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const register = async (
+  data: Omit<RegisterDataType, "confirmPassword"> & {
+    passwordConfirm: string;
+  }
+): Promise<RegisterResponseType> => {
+  try {
+    const res = await axiosInstance.post("/auth/register", data);
     return res.data;
   } catch (err) {
     throw err;

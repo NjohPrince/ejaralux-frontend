@@ -4,11 +4,14 @@ import {
   fetchMe,
   login,
   logoutUser,
+  register,
 } from "@/modules/auth/services/auth.service";
 import {
   LoginDataType,
   LoginResponseType,
   MeResponseType,
+  RegisterDataType,
+  RegisterResponseType,
 } from "@/modules/auth/types/auth.types";
 import {
   BackendError,
@@ -35,6 +38,21 @@ export const loginUser = createAsyncThunk<
   try {
     const data = await login(credentials);
     return data;
+  } catch (err) {
+    return rejectWithValue(serializeAxiosError(err));
+  }
+});
+
+export const registerUser = createAsyncThunk<
+  RegisterResponseType,
+  Omit<RegisterDataType, "confirmPassword"> & {
+    passwordConfirm: string;
+  },
+  { rejectValue: BackendError }
+>("auth/register", async (data, { rejectWithValue }) => {
+  try {
+    const res = await register(data);
+    return res;
   } catch (err) {
     return rejectWithValue(serializeAxiosError(err));
   }

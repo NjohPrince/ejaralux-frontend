@@ -15,6 +15,13 @@ import EyeOpenIcon from "@/shared/components/icons/eye-open.icon";
 import EyeClosedIcon from "@/shared/components/icons/eye-closed.icon";
 import UserIcon from "@/shared/components/icons/user.icon";
 import { registerValidation } from "@/modules/auth/lib/validations/register.validation";
+import { registerUser } from "@/shared/redux/features/auth/auth.slice";
+import { useAppDispatch } from "@/shared/lib/hooks/redux.hooks";
+import {
+  NotificationTitleType,
+  showNotification,
+} from "@/shared/redux/features/notification/notification.slice";
+import { BackendError } from "@/shared/lib/utils/extract-error-message.util";
 
 /**
  * SignUpTemplate
@@ -33,6 +40,7 @@ import { registerValidation } from "@/modules/auth/lib/validations/register.vali
  * @returns {ReactNode} The rendered component
  */
 const SignUpTemplate = (): ReactNode => {
+  const dispatch = useAppDispatch();
   const [form, setForm] = useState<RegisterDataType>({
     firstName: "",
     lastName: "",
@@ -55,6 +63,29 @@ const SignUpTemplate = (): ReactNode => {
 
   const launchAPI = async () => {
     setLoading(true);
+
+    try {
+      await dispatch(
+        registerUser({ ...form, passwordConfirm: confirmPassword })
+      ).unwrap();
+
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.SUCCESS,
+          message:
+            "Registration successful! An email with a verification link has been sent to your email.",
+        })
+      );
+    } catch (err: BackendError | unknown) {
+      dispatch(
+        showNotification({
+          title: NotificationTitleType.ERROR,
+          message: (err as BackendError).message || "Something went wrong...",
+        })
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { handleSubmit, updateForm } = UseFormHook<RegisterDataType>(

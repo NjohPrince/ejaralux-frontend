@@ -8,6 +8,11 @@ export type LoginResponseType = {
   access_token: string;
 };
 
+export type RegisterResponseType = {
+  status: string;
+  message: string;
+};
+
 export type RegisterDataType = {
   firstName: string;
   lastName: string;
