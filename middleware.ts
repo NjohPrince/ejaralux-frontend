@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-import { GUEST_ONLY_ROUTES, PROTECTED_ROUTES } from "./app/config/auth.config";
+export const PROTECTED_ROUTES = ["/dashboard"];
+export const GUEST_ONLY_ROUTES = [
+  "/auth/login",
+  "/auth/sign-up",
+  "/auth/forgot-password",
+  "/auth/change-password",
+];
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -30,14 +36,12 @@ export function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-// 👇 define routes where middleware should run
-const allRoutes = [...PROTECTED_ROUTES, ...GUEST_ONLY_ROUTES];
-
-// expand matcher for dynamic routes like /dashboard/settings
-const matcher = allRoutes.map((route) =>
-  PROTECTED_ROUTES.includes(route) ? `${route}/:path*` : route
-);
-
 export const config = {
-  matcher,
+  matcher: [
+    "/dashboard/:path*",
+    "/auth/login",
+    "/auth/sign-up",
+    "/auth/forgot-password",
+    "/auth/change-password",
+  ],
 };
