@@ -44,8 +44,21 @@ export const register = async (
   }
 };
 
+export const verifyEmail = async (
+  verificationCode: string
+): Promise<APIResponseType> => {
+  try {
+    const res = await axiosInstance.get(
+      `/auth/verifyemail/${verificationCode}`
+    );
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const logoutUser = async (): Promise<void> => {
-  await axiosInstance.post("/auth/logout");
+  await axiosInstance.get("/auth/logout");
 };
 
 export const fetchMe = async (): Promise<MeResponseType> => {

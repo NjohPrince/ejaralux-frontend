@@ -6,6 +6,7 @@ import {
   login,
   logoutUser,
   register,
+  verifyEmail,
 } from "@/modules/auth/services/auth.service";
 import {
   APIResponseType,
@@ -67,6 +68,19 @@ export const registerUser = createAsyncThunk<
 >("auth/register", async (data, { rejectWithValue }) => {
   try {
     const res = await register(data);
+    return res;
+  } catch (err) {
+    return rejectWithValue(serializeAxiosError(err));
+  }
+});
+
+export const verifyEmailThunk = createAsyncThunk<
+  APIResponseType,
+  string,
+  { rejectValue: BackendError }
+>("auth/verify-email", async (verificationCode, { rejectWithValue }) => {
+  try {
+    const res = await verifyEmail(verificationCode);
     return res;
   } catch (err) {
     return rejectWithValue(serializeAxiosError(err));
