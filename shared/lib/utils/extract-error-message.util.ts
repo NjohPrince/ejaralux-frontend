@@ -1,4 +1,4 @@
-import { isAxiosError } from "axios";
+import { AxiosError, isAxiosError } from "axios";
 
 export interface BackendError {
   message: string;
@@ -6,21 +6,67 @@ export interface BackendError {
   statusCode?: number;
 }
 
-export const extractErrorMessage = (
-  error: unknown,
+export function extractBackendError(
+  err: unknown,
   fallbackMessage = "Something went wrong"
-): string => {
-  if (isAxiosError<BackendError>(error)) {
-    const data = error.response?.data;
+): BackendError {
+  if ((err as AxiosError)?.isAxiosError) {
+    const axiosErr = err as AxiosError<BackendError>;
 
-    if (data?.message) return data.message;
-
-    if (data?.code === "ACCESS_TOKEN_EXPIRED") {
-      return "Session expired. Please log in again.";
-    }
-
-    return fallbackMessage;
+    return {
+      message: axiosErr.response?.data?.message || fallbackMessage,
+      code: axiosErr.response?.data?.code || "UNKNOWN_ERROR",
+      statusCode: axiosErr.response?.status || 500,
+    };
   }
 
-  return fallbackMessage;
-};
+  if (err instanceof Error) {
+    return {
+      message: err.message,
+      code: "JS_ERROR",
+      statusCode: 500,
+    };
+  }
+
+  return {
+    message: fallbackMessage,
+    code: "UNKNOWN",
+    statusCode: 500,
+  };
+}
+
+export function serializeAxiosError(err: unknown): BackendError {
+  if ((err as AxiosError)?.isAxiosError) {
+    const axiosErr = err as AxiosError<BackendError>;
+
+    if (axiosErr?.response?.data?.message) {
+      return {
+        message: axiosErr.response?.data?.message || axiosErr.message,
+        code: axiosErr.response?.data?.code || axiosErr.code || "UNKNOWN_ERROR",
+        statusCode: axiosErr.response?.status || 500,
+      };
+    } else {
+      if (isAxiosError(err)) {
+        return {
+          message: err?.response?.data as string,
+          code: axiosErr.code || "UNKNOWN_ERROR",
+          statusCode: 500,
+        };
+      }
+    }
+  }
+
+  if (err instanceof Error) {
+    return {
+      message: err.message,
+      code: "JS_ERROR",
+      statusCode: 500,
+    };
+  }
+
+  return {
+    message: "Unknown error",
+    code: "UNKNOWN",
+    statusCode: 500,
+  };
+}

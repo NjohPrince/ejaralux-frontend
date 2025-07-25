@@ -10,7 +10,10 @@ import {
   LoginResponseType,
   MeResponseType,
 } from "@/modules/auth/types/auth.types";
-import { extractErrorMessage } from "@/shared/lib/utils/extract-error-message.util";
+import {
+  BackendError,
+  serializeAxiosError,
+} from "@/shared/lib/utils/extract-error-message.util";
 
 interface AuthState {
   user: MeResponseType["user"] | null;
@@ -24,18 +27,42 @@ const initialState: AuthState = {
   error: null,
 };
 
-export const loginUser = createAsyncThunk<LoginResponseType, LoginDataType>(
-  "auth/login",
-  async (credentials) => {
+export const loginUser = createAsyncThunk<
+  LoginResponseType,
+  LoginDataType,
+  { rejectValue: BackendError }
+>("auth/login", async (credentials, { rejectWithValue }) => {
+  try {
     const data = await login(credentials);
     return data;
+  } catch (err) {
+    return rejectWithValue(serializeAxiosError(err));
   }
-);
+});
 
-export const loadUser = createAsyncThunk<MeResponseType>("auth/me", fetchMe);
+export const loadUser = createAsyncThunk<
+  MeResponseType,
+  void,
+  { rejectValue: BackendError }
+>("auth/me", async (_, { rejectWithValue }) => {
+  try {
+    const data = await fetchMe();
+    return data;
+  } catch (err) {
+    return rejectWithValue(serializeAxiosError(err));
+  }
+});
 
-export const logout = createAsyncThunk("auth/logout", async () => {
-  await logoutUser();
+export const logout = createAsyncThunk<
+  void,
+  void,
+  { rejectValue: BackendError }
+>("auth/logout", async (_, { rejectWithValue }) => {
+  try {
+    await logoutUser();
+  } catch (err) {
+    return rejectWithValue(serializeAxiosError(err));
+  }
 });
 
 const authSlice = createSlice({
@@ -56,9 +83,9 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state) => {
         state.loading = false;
       })
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = extractErrorMessage(action.error, "Login failed");
       })
       .addCase(loadUser.fulfilled, (state, action) => {
         state.user = action.payload.user;

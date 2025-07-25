@@ -22,7 +22,7 @@ import {
   NotificationTitleType,
   showNotification,
 } from "@/shared/redux/features/notification/notification.slice";
-import { extractErrorMessage } from "@/shared/lib/utils/extract-error-message.util";
+import { BackendError } from "@/shared/lib/utils/extract-error-message.util";
 
 /**
  * LoginTemplate
@@ -69,13 +69,11 @@ const LoginTemplate = (): JSX.Element => {
       );
 
       router.push("/dashboard");
-    } catch (err) {
-      const message = extractErrorMessage(err, "Login failed");
-
+    } catch (err: BackendError | unknown) {
       dispatch(
         showNotification({
           title: NotificationTitleType.ERROR,
-          message,
+          message: (err as BackendError).message || "Something went wrong...",
         })
       );
     } finally {

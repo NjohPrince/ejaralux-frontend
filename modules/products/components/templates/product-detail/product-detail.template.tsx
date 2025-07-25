@@ -18,6 +18,7 @@ import {
 } from "@/shared/redux/features/notification/notification.slice";
 import {
   addToCart,
+  CartItem,
   removeFromCart,
 } from "@/modules/cart/redux/features/cart/cart.slice";
 import { formatQuantityAvailability } from "@/shared/lib/utils/map-unit.util";
@@ -76,7 +77,7 @@ const ProductDetailTemplate: React.FC<{ product: ProductType }> = ({
   };
 
   const checkProductInCart = (id: number) => {
-    return cartState.items.some((item) => item.id === id);
+    return cartState.items.some((item: CartItem) => item.id === id);
   };
 
   const buttonText = checkProductInCart(product.id)

@@ -9,8 +9,12 @@ import {
 export const login = async (
   data: LoginDataType
 ): Promise<LoginResponseType> => {
-  const res = await axiosInstance.post("/auth/login", data);
-  return res.data;
+  try {
+    const res = await axiosInstance.post("/auth/login", data);
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
 };
 
 export const logoutUser = async (): Promise<void> => {
