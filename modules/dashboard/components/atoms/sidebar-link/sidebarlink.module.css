@@ -1,0 +1,10 @@
+.sidebar__link {
+  font-size: 1.8rem;
+  padding: 16px 12px;
+  color: var(--dark-color);
+}
+
+.sidebar__link.active {
+  background: var(--dark-color);
+  color: var(--white-color);
+}

@@ -6,7 +6,15 @@
   padding-top: 28px;
 }
 
+.head {
+  padding-left: 12px;
+}
+
 .head h2 {
   font-family: var(--font-primary);
   font-size: 3rem;
+}
+
+.side__menu {
+  margin-top: 48px;
 }
