@@ -73,7 +73,12 @@ export const resetPassword = async (
 };
 
 export const logoutUser = async (): Promise<void> => {
-  await axiosInstance.get("/auth/logout");
+  try {
+    const res = await axiosInstance.get("/auth/logout");
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
 };
 
 export const fetchMe = async (): Promise<MeResponseType> => {

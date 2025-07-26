@@ -5,7 +5,7 @@ import {
   NotificationTitleType,
   showNotification,
 } from "../redux/features/notification/notification.slice";
-import { logout } from "../redux/features/auth/auth.slice";
+import { logoutThunk } from "../redux/features/auth/auth.slice";
 
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -51,7 +51,7 @@ axiosInstance.interceptors.response.use(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (refreshError: any) {
         if (refreshError?.response?.status === 403) {
-          store.dispatch(logout());
+          store.dispatch(logoutThunk());
           store.dispatch(
             showNotification({
               title: NotificationTitleType.ERROR,

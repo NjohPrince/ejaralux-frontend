@@ -118,7 +118,7 @@ export const loadUser = createAsyncThunk<
   }
 });
 
-export const logout = createAsyncThunk<
+export const logoutThunk = createAsyncThunk<
   void,
   void,
   { rejectValue: BackendError }
@@ -155,7 +155,7 @@ const authSlice = createSlice({
       .addCase(loadUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
       })
-      .addCase(logout.fulfilled, (state) => {
+      .addCase(logoutThunk.fulfilled, (state) => {
         state.user = null;
       });
   },
