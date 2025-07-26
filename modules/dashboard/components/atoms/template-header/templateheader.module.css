@@ -1,0 +1,4 @@
+.template__header h2 {
+  font-size: 3rem;
+  font-family: var(--font-primary);
+}
