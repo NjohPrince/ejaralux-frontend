@@ -14,6 +14,7 @@
 
 .container th {
   background-color: var(--secondary-white-color);
+  padding-block: 14px;
 }
 
 .action-button {

@@ -2,54 +2,68 @@ import React from "react";
 
 import classes from "./table.module.css";
 
-const TableMolecule = () => {
+export interface Column<T> {
+  key: keyof T | "actions";
+  header: string;
+}
+
+interface TableProps<T> {
+  columns: Column<T>[];
+  data: T[];
+  onEdit?: (item: T) => void;
+  onDelete?: (item: T) => void;
+}
+
+function TableMolecule<T>({ columns, data, onEdit, onDelete }: TableProps<T>) {
   return (
-    <div className={`${classes.container}`}>
+    <div className={classes.container}>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>ACTIONS</th>
+            {columns.map((col) => (
+              <th key={String(col.key)}>{col.header}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>John Doe</td>
-            <td>john.doe@example.com</td>
-            <td>
-              <button
-                className={`${classes["action-button"]} ${classes["edit"]}`}
-              >
-                Edit
-              </button>
-              <button
-                className={`${classes["action-button"]} ${classes["delete"]}`}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Jane Smith</td>
-            <td>jane.smith@example.com</td>
-            <td>
-              <button
-                className={`${classes["action-button"]} ${classes["edit"]}`}
-              >
-                Edit
-              </button>
-              <button
-                className={`${classes["action-button"]} ${classes["delete"]}`}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
+          {data.map((item, rowIndex) => (
+            <tr key={rowIndex}>
+              {columns.map((col) => {
+                if (col.key === "actions") {
+                  return (
+                    <td key={`${rowIndex}-actions`}>
+                      {onEdit && (
+                        <button
+                          className={`${classes["action-button"]} ${classes["edit"]}`}
+                          onClick={() => onEdit(item)}
+                        >
+                          Edit
+                        </button>
+                      )}
+                      {onDelete && (
+                        <button
+                          className={`${classes["action-button"]} ${classes["delete"]}`}
+                          onClick={() => onDelete(item)}
+                        >
+                          Delete
+                        </button>
+                      )}
+                    </td>
+                  );
+                }
+
+                return (
+                  <td key={`${rowIndex}-${String(col.key)}`}>
+                    {String(item[col.key as keyof T])}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
 export default TableMolecule;

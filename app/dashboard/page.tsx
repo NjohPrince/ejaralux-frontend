@@ -56,7 +56,7 @@ export default async function DashboardPage() {
   const user = await getUserInfo();
 
   if (!user) {
-    redirect("/login");
+    redirect("/auth/login");
   }
 
   return (
