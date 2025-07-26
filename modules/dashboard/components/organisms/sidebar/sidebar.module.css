@@ -1,0 +1,12 @@
+.sidebar {
+  background: var(--white-color);
+  height: 100%;
+  overflow-y: auto;
+  padding: 12px;
+  padding-top: 28px;
+}
+
+.head h2 {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+}

@@ -1,0 +1,47 @@
+.layout {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.sidenav {
+  position: absolute;
+  max-width: 324px;
+  width: 100%;
+  padding: 12px;
+  padding-right: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.sidenav.close {
+  max-width: 0;
+}
+
+.content {
+  padding: 12px;
+  position: absolute;
+  left: 324px;
+  top: 0;
+  width: calc(100% - 324px);
+  height: 100%;
+  z-index: 1;
+}
+
+.content.expand {
+  left: 0;
+  width: 100%;
+}
+
+.view {
+  background: var(--white-color);
+  height: 100%;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.toggler {
+  background: transparent;
+  border: none;
+}
