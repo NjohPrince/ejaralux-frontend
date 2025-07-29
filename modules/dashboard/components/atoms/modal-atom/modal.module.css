@@ -1,0 +1,27 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  background: var(--white-color);
+  padding: 24px;
+  position: relative;
+  max-width: 424px;
+  width: 100%;
+}
+
+.header h2 {
+  font-size: 2rem;
+  font-family: var(--font-primary);
+}
+
+.header button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--dark-color);
+  background: var(--dark-color);
+}
