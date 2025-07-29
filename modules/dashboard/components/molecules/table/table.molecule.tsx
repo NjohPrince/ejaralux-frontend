@@ -5,6 +5,8 @@ import classes from "./table.module.css";
 export interface Column<T> {
   key: keyof T | "actions";
   header: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  render?: (value: any, item: T) => React.ReactNode;
 }
 
 interface TableProps<T> {
@@ -52,9 +54,11 @@ function TableMolecule<T>({ columns, data, onEdit, onDelete }: TableProps<T>) {
                   );
                 }
 
+                const value = item[col.key as keyof T];
+
                 return (
                   <td key={`${rowIndex}-${String(col.key)}`}>
-                    {String(item[col.key as keyof T])}
+                    {col.render ? col.render(value, item) : String(value)}
                   </td>
                 );
               })}

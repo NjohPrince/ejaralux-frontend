@@ -4,9 +4,9 @@ import { cookies } from "next/headers";
 import { AxiosError } from "axios";
 
 import TemplateheaderAtom from "../../atoms/template-header/template-header.atom";
-import TableMolecule from "../../molecules/table/table.molecule";
 import { CategoryType } from "@/modules/products/types/category.type";
 import axiosInstance from "@/shared/lib/axios";
+import CategoryTableOrganism from "../../organisms/category-table/category-table.organism";
 
 export interface GetCategoryResponse {
   status: string;
@@ -57,14 +57,7 @@ const DashboardCategoriesTemplate = async () => {
   return (
     <div className={`flex col 32`}>
       <TemplateheaderAtom content="Manage Categories" />
-      <TableMolecule
-        columns={[
-          { key: "id", header: "ID" },
-          { key: "name", header: "Name" },
-          { key: "actions", header: "Actions" },
-        ]}
-        data={categories || []}
-      />
+      <CategoryTableOrganism categories={categories || []} />
     </div>
   );
 };
