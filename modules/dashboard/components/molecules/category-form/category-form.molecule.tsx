@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import classes from "./categoryform.module.css";
 
 import { CategoryType } from "@/modules/products/types/category.type";
-import MailIcon from "@/shared/components/icons/mail.icon";
 import InputAtom from "@/shared/components/atoms/input/input.atom";
 import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 
@@ -58,7 +57,6 @@ const CategoryFormMolecule = ({
               name="name"
               id="name"
               onChange={onChange}
-              iconLeft={<MailIcon size="20" color="var(--dark-color)" />}
               placeholder="Serums"
               ariaLabel="Category Name"
             />
