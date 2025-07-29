@@ -86,3 +86,41 @@ const CategoryTableOrganism: React.FC<CategoryTableProps> = ({
 };
 
 export default CategoryTableOrganism;
+
+// const ProductsTable = ({ products }: { products: ProductType[] }) => {
+//   return (
+//     <TableMolecule<ProductType>
+//       columns={[
+//         { key: "id", header: "ID" },
+//         { key: "name", header: "Name" },
+//         {
+//           key: "price",
+//           header: "Price",
+//           render: (val) => `$${val.toFixed(2)}`,
+//         },
+//         {
+//           key: "image",
+//           header: "Image",
+//           render: (val) =>
+//             val ? (
+//               <Image src={val} alt="Product" width={40} height={40} />
+//             ) : (
+//               "No image"
+//             ),
+//         },
+//         { key: "unit", header: "Unit" },
+//         {
+//           key: "catId",
+//           header: "Category ID",
+//           render: (val) => <span style={{ fontWeight: "bold" }}>{val}</span>,
+//         },
+//         { key: "actions", header: "Actions" },
+//       ]}
+//       data={products}
+//       onEdit={(product) => console.log("Edit", product)}
+//       onDelete={(product) => console.log("Delete", product)}
+//     />
+//   );
+// };
+
+// export default ProductsTable;
