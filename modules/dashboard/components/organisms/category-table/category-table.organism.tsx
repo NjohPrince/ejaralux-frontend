@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 
+import classes from "./categorytable.module.css";
+
 import TableMolecule from "../../molecules/table/table.molecule";
 import { CategoryType } from "@/modules/products/types/category.type";
 import { CategoryTableProps } from "./categorytable.type";
@@ -41,14 +43,19 @@ const CategoryTableOrganism: React.FC<CategoryTableProps> = ({
   };
 
   return (
-    <>
-      <ButtonAtom
-        label={"Add New Category"}
-        onClick={handleOpenCreate}
-        ariaLabel={"Add New Category"}
-        type="button"
-        normal={true}
-      />
+    <div className={`${classes.table} flex col`}>
+      <div className={`${classes.add} flex w-full space-between`}>
+        <div></div>
+        <div>
+          <ButtonAtom
+            label={"+ New Category"}
+            onClick={handleOpenCreate}
+            ariaLabel={"+ New Category"}
+            type="button"
+            normal={true}
+          />
+        </div>
+      </div>
 
       <TableMolecule<CategoryType>
         columns={[
@@ -74,7 +81,7 @@ const CategoryTableOrganism: React.FC<CategoryTableProps> = ({
           onSubmit={handleSubmit}
         />
       </ModalAtom>
-    </>
+    </div>
   );
 };
 
