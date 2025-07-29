@@ -32,6 +32,7 @@ const CategoryFormMolecule = ({
     if (mode === "edit" && initialData) {
       setForm({ ...form, name: initialData.name });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, initialData]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
