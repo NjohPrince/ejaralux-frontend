@@ -7,6 +7,7 @@ import { CategoryType } from "@/modules/products/types/category.type";
 import { CategoryTableProps } from "./categorytable.type";
 import CategoryFormMolecule from "../../molecules/category-form/category-form.molecule";
 import ModalAtom from "../../atoms/modal-atom/modal-atom.atom";
+import ButtonAtom from "@/shared/components/atoms/button/button.atom";
 
 const CategoryTableOrganism: React.FC<CategoryTableProps> = ({
   categories,
@@ -41,6 +42,14 @@ const CategoryTableOrganism: React.FC<CategoryTableProps> = ({
 
   return (
     <>
+      <ButtonAtom
+        label={"Add New Category"}
+        onClick={handleOpenCreate}
+        ariaLabel={"Add New Category"}
+        type="button"
+        normal={true}
+      />
+
       <TableMolecule<CategoryType>
         columns={[
           { key: "id", header: "ID" },

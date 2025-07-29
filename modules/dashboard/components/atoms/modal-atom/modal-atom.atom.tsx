@@ -28,6 +28,8 @@ const ModalAtom = ({ isOpen, onClose, title, children }: ModalProps) => {
             className={`flex center`}
             aria-label="close modal"
             title="Close Modal"
+            tabIndex={0}
+            type="button"
           >
             <CloseIcon color="var(--white-color)" />
           </button>
